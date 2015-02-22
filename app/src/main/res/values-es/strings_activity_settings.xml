@@ -1,0 +1,38 @@
+<resources>
+
+    <string name="title_activity_settings">Opcions</string>
+
+    <!-- Strings related to Settings -->
+
+
+    <!-- Example General settings -->
+    <string name="pref_header_general">General</string>
+    <string name="pref_title_autoconnect_wifi">Autoconectar wifi</string>
+    <string name="pref_description_autoconnect_wifi">Conecta automáticamente al wifi cuando entramos a un museo.</string>
+    <string name="pref_title_autoactualitzar_db">Autoactualizar base de datos</string>
+    <string name="pref_description_autoactualitzar_db">Actualiza automáticamente la base de datos al abrir la aplicación.</string>
+    <string name="pref_title_canviar_idioma">Cambiar Idioma</string>
+    <string name="pref_description_canviar_idioma">Cambia el idioma de la aplicación.</string>
+    <string name="pref_title_display_name">Display name</string>
+    <string name="pref_default_display_name">John Smith</string>
+    <string name="pref_title_add_friends_to_messages">Add friends to messages</string>
+
+    <!-- Example settings for Notifications -->
+    <string name="pref_header_notifications">Notificaciones</string>
+    <string name="pref_title_new_message_notifications">Notificar nuevo wifi</string>
+	
+   <string-array name="pref_language">
+	    <item name="Català">Catalan</item>
+	    <item name="Castellà">Castellano</item>
+	    <item name="Xinès">Chino</item>
+	    <item name="Anglès">Inglés</item>
+	</string-array>
+	
+    <string-array name="pref_language_values">
+	    <item name="Català">ca</item>
+	    <item name="Castellà">es</item>
+	    <item name="Xinès">zh</item>
+	    <item name="Anglès">en</item>
+	</string-array>
+    
+</resources>

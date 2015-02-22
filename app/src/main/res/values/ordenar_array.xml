@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="ordenar_array">
+        <item>Tipus</item>
+        <item>Alfabèticament (A -> Z)</item>
+        <item>Alfabèticament (Z -> A)</item>
+        <item>Millor valoració</item>
+        <item>Pitjor valoració</item>
+    </string-array>
+</resources>

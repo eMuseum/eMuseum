@@ -1,0 +1,23 @@
+<resources>
+
+    <string name="title_activity_settings">Opcions</string>
+
+    <!-- Strings related to Settings -->
+
+
+    <!-- Example General settings -->
+    <string name="pref_header_general">General</string>
+    <string name="pref_title_autoconnect_wifi">Autoconnect wifi</string>
+    <string name="pref_description_autoconnect_wifi">AutoConnect to museum wifi connection.</string>
+    <string name="pref_title_autoactualitzar_db">AutoUpgrade database</string>
+    <string name="pref_description_autoactualitzar_db">AutoUpgrade database when we open the app.</string>
+    <string name="pref_description_canviar_idioma">Canviar Idioma</string>
+    <string name="pref_title_display_name">Display name</string>
+    <string name="pref_default_display_name">John Smith</string>
+    <string name="pref_title_add_friends_to_messages">Add friends to messages</string>
+
+    <!-- Example settings for Notifications -->
+    <string name="pref_header_notifications">Notifications</string>
+    <string name="pref_title_new_message_notifications">Notify me when a wifi connection is available.</string>
+
+</resources>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <color name="background">#697f94</color>
+    <color name="darker_background">#e0d8ca</color>
+    
+    <color name="transparent">#00FFFFFF</color>
+    <color name="white">#FFFFFF</color>
+	<color name="semitransparent_white">#80FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="semitransparent_black">#66000000</color>
+    
+    <color name="text">#36424D</color>
+    
+    <color name="login_background">#66FFFFFF</color>
+    <color name="login_border">#FFFFFF</color>
+    <color name="login_register_bar">#ffffff</color>
+    <color name="login_blue_button">#395d9f</color>
+    <color name="login_blue_pressed">#1c2d4c</color>
+    <color name="login_green_button">#459f39</color>
+    <color name="login_green_pressed">#2b6423</color>   
+    
+    <color name="grid_element">#F0F2F2</color>
+    <color name="element_museu">#d3ffb5</color>
+    <color name="element_obra">#fff9c9</color>
+    <color name="element_autor">#ffabae</color> 
+
+    <color name="element_comentari">#1AFFFF00</color> 
+    
+    <color name="dark_border">#7a7161</color>
+    <color name="light_border">#22000000</color>
+
+</resources>

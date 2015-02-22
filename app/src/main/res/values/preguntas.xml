@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="listaPreguntas" >
+        <item>¿Com iniciar una sessió?</item>
+        <item>¿Com tancar una sessió?</item>
+	    <item>¿Com comentar obres?</item>
+	    <item>¿Com fer les recerques?</item>
+	    <item>¿Com escanear QR?</item>
+	    <item>Utilitat de la càmera</item>
+	    <item>¿Com configurar les recerques?</item>
+	    <item>¿Com ordenar els resultats?</item>
+	    <item>¿Com reproduïr o pausar audiodescripció?</item>
+    </string-array>
+    
+    <string-array name="listaRespuestas">
+        
+        <item>Si estàs en el menú de l\'inici,solamente has de posar el teu nom de l\'usuari y la contrasenya y clicar "Entrar".
+            En qualsevol altres cassos,has d\'anar a la pantalla de l\'inici.Per fer-ho,clicar el menú d\'opcions i ho apareixera
+            l\'opció "Iniciar Sessió".Prems aquest botó y et portarà al menú de l\'inici.</item>
+        
+        <item>Premer el botó d\'opcions i trobaràs l\'opció "Tancar Sessió".¡Atenció,aquesta operació solament
+            es possible si has iniciat la sessió previament!</item>
+            
+        <item>Per poder comentar les obres és imprescindibles que estiguis logueat.Els comentaris es fa des d\'una obra.Per
+            comentar el que has escrit,prems el botó "Comentar" y es publicarà el teu comentari.Pots premer el botó "Comentaris i Valoració"
+            per amagar o mostrar els comentaris.</item>
+            
+        <item>La recerca es fa en la pantalla principal.Dalt del tot hi ha un espai per que el usuari introdueix el que volia buscar.
+            Més tens la posibilitat de configurar la teva recerca:ordenar resultat,buscar per obra,buscar per autor,etc.</item>
+            
+        <item>Llisca cap a la dreta des de la pantalla principal per escanejar QR.</item>
+        
+        <item>En l\'aplicació,tens la possibilitat de fer una foto a una obra.Y l\'aplicació t\'ho dirà quina obra és.</item>
+        
+        <item>Desplegues el menú de la configuració del filtre de recerca prement el botó de triangle.Després pot escollir entre
+           els diferent tipus de recerques com buscar per museu,per obra o per autor.Més es pot ordenar els resultats de la recerca
+           alfabèticament o per valoració.</item>
+          
+        <item>Desplegues el menú de configuració del filtre de recerca y abaix de tot ho trobaras un camp anomenat "Ordenar per" on has de clicar per escollir
+            entre les diferents formes de ordenar els resultats</item>
+            
+        <item>Per pausar o reproduïr audiodescrpció heu de clicar el botó de reproduïr.</item>
+        
+    </string-array>
+</resources>

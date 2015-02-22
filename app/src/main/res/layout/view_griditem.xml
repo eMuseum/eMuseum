@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="top" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="96dp" >
+
+        <View
+            android:id="@+id/view_element"
+            android:layout_width="20dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center_vertical" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" >
+
+            <ImageView
+                android:id="@+id/griditem_imatge"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:padding="10dp" />
+
+            <ProgressBar
+                android:id="@+id/griditem_image_loading"
+                android:layout_marginTop="24dp"
+                android:layout_marginLeft="24dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingRight="40dp" >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/griditem_title"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:ellipsize="end"
+                        android:lines="2"
+                        android:scaleType="centerCrop"
+                        android:textColor="@color/text"
+                        android:fontFamily="sans-serif-condensed"
+                        android:textStyle="bold"
+                        android:textSize="18sp"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/griditem_subinfo"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:lines="1"
+                        android:fontFamily="sans-serif-light"
+                        android:textSize="14sp" />
+                </RelativeLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <ImageView
+            android:id="@+id/griditem_info"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="bottom|right"
+            android:adjustViewBounds="false"
+            android:contentDescription="@string/maingriditem_image"
+            android:padding="15dp"
+            android:paddingRight="15dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/info_verde" />
+    </RelativeLayout>
+
+</FrameLayout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="ordenar_array">
+        <item>Type</item>
+        <item>Alphabetically (A -> Z)</item>
+        <item>Alphabetically (Z -> A)</item>
+        <item>Best rating</item>
+        <item>Worst rating</item>
+    </string-array>
+</resources>

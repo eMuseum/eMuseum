@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginTop="50dp"
+    android:background="@drawable/view_search_menu_background"
+    android:clickable="true"
+    android:orientation="vertical"
+    android:padding="15dp" >
+
+    <CheckBox
+        android:id="@+id/view_search_per_museu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:fontFamily="sans-serif"
+        android:text="@string/view_search_museu"
+        android:textColor="@color/text"
+        android:textStyle="italic" />
+
+    <CheckBox
+        android:id="@+id/view_search_per_autor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:text="@string/view_search_autor"
+        android:textColor="@color/text"
+        android:textStyle="italic" />
+
+    <CheckBox
+        android:id="@+id/view_search_per_obra"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:text="@string/view_search_obra"
+        android:textColor="@color/text"
+        android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/view_search_lbl_ordenar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/view_search_ordenar"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/text"
+        android:textStyle="bold" />
+
+    <Spinner
+        android:id="@+id/view_search_ordre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

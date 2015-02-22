@@ -1,0 +1,100 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CameraFragment" >
+
+    <FrameLayout
+        android:id="@+id/fragment_qr_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <FrameLayout
+            android:id="@+id/frameLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/marc_camara"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/select_type" >
+
+            <ImageView
+                android:id="@+id/fragment_camera_select"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#AA29968b" />
+
+            <LinearLayout
+                android:id="@+id/fragment_camera_options"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/marc_camara_padding"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:weightSum="1" >
+
+                <RelativeLayout
+                    android:id="@+id/fragment_camera_qr"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5" >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerInParent="true"
+                        android:layout_centerVertical="true"
+                        android:gravity="center"
+                        android:scaleType="centerInside"
+                        android:src="@mipmap/qr" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/fragment_camera_recon"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5" >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerInParent="true"
+                        android:layout_centerVertical="true"
+                        android:gravity="center"
+                        android:scaleType="fitCenter"
+                        android:src="@mipmap/recon" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="@drawable/select_type_border"
+                android:orientation="vertical" >
+            </LinearLayout>
+        </FrameLayout>
+
+        <ImageView
+            android:id="@+id/camera_take_shot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/frameLayout1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="14dp"
+            android:scaleType="fitCenter"
+            android:scaleX="2"
+            android:scaleY="2"
+            android:src="@android:drawable/ic_menu_camera" />
+
+    </RelativeLayout>
+
+    <include
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    layout="@layout/view_api_loading" />
+
+</FrameLayout>

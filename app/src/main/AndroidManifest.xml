@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="ub.edu.pis2014.pis12" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="19" />
+
+    <permission
+        android:name="ub.edu.pis2014.pis12.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature" />
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+    <uses-permission android:name="edu.ub.pis2014.pis12.permission.MAPS_RECEIVE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/project_app_name"
+        android:theme="@style/AppTheme" >
+        <uses-library android:name="com.google.android.maps" />
+
+        <service
+            android:name="ub.edu.pis2014.pis12.utils.EMuseumService"
+            android:exported="false" />
+
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyCUBX-6TRQ9Sx0cx-_8MU9zErjl7fEiHsw" />
+
+        <activity
+            android:name="ub.edu.pis2014.pis12.MainActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/project_app_name" >
+        </activity>
+        <activity
+            android:name="ub.edu.pis2014.pis12.InfoActivity"
+            android:label="@string/project_app_name"
+            android:windowSoftInputMode="stateAlwaysHidden" >
+        </activity>
+        <activity
+            android:name="ub.edu.pis2014.pis12.LlistaObresActivity"
+            android:label="@string/project_app_name" >
+        </activity>
+        <activity
+            android:name="ub.edu.pis2014.pis12.SplashActivity"
+            android:label="@string/project_app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="ub.edu.pis2014.pis12.Registrarse"
+            android:label="@string/title_activity_registrarse" >
+        </activity>
+        <activity
+            android:name="ub.edu.pis2014.pis12.RecuperarPass"
+            android:label="@string/project_app_name" >
+        </activity>
+        <activity
+            android:name="ub.edu.pis2014.pis12.AjudaActivity"
+            android:label="@string/action_ajuda" >
+        </activity>
+        <activity
+            android:name="ub.edu.pis2014.pis12.SettingsActivity"
+            android:label="@string/title_activity_settings" >
+        </activity>
+        <!--
+        <activity
+            android:name="com.google.zxing.client.android.CaptureActivity"
+            android:clearTaskOnLaunch="true"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="sensorLandscape"
+            android:stateNotNeeded="true"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:windowSoftInputMode="stateAlwaysHidden" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.google.zxing.client.android.SCAN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        -->
+        <activity
+            android:name="ub.edu.pis2014.pis12.MapsActivity"
+            android:configChanges="orientation"
+            android:label="@string/project_app_name"
+            android:theme="@android:style/Theme.NoTitleBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
