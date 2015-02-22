@@ -8,10 +8,10 @@
     <string name="action_iniciar_sessio">登录</string>
     <string name="action_tancar_sessio">退出</string>
     <string name="action_canviar_idioma">更改语言</string>
-    
+
     <string name="Benvingut">欢迎来到</string>
     <string name="a_eMuseum">eMuseum</string>
-    
+
     <string name="recuperarContrasenya">"请输入您的电子邮箱,\n我们将发送密码到您的电子邮箱"</string>
     <string name="enviar_email">发送</string>
     <string name="recuperarPass"><u>我忘记了我的帐号密码！</u></string>
@@ -28,7 +28,7 @@
     <string name="main_actualitzar_msg">有新的资料库, 您要下载它吗?\n完成后，软件将自动重启.</string>
     <string name="maingriditem_image">Información</string>
     <string name="maingriditem_up_more">往上拉一下加载评论</string>
-    <string name="maingriditem_up_click">放开让软件显示已加载的评论</string>        
+    <string name="maingriditem_up_click">放开让软件显示已加载的评论</string>
     <string name="tablet_inici_text">选择博物馆名单里的任何一项来显示它的资料和博物馆所有的作品名单。</string>
     <string name="view_search_obra">查找作品</string>
     <string name="view_search_autor">查找作者</string>
@@ -49,101 +49,101 @@
     <string name="toast_registre_email_err">邮箱错误</string>
     <string name="toast_registre_pass_err">两次密码输入不统一。</string>
     <string name="toast_registre_pass_ok">密码正确!</string>
-	<string name="text_tutorial_button">跳过指南</string>
-	<string name="Comenta">发布</string>
-	<string name="description_zoom_touch_close">图片已放大 (按后退键回复原图.)</string>
-	<string name="view_settings">更改地图</string>
-	
-	<string name="grid_comentaris_borrar">您确定要删除此评论吗?</string>
-	<string name="grid_comentaris_editar_titol">编辑评论</string>
-	<string name="grid_comentaris_editar">编辑</string>
-	
-	<string name="fragment_qr_camera_error">在设备上查找不到相机功能</string>
-	<string name="fragment_info_register">请先登录，再发表留言</string>
-    <string name="fragment_info_register_stars">请先登录，然后再评论</string>
-	<string name="fragment_info_laborables">工作日</string>
-	<string name="fragment_info_festius">节日</string>
-	<string name="fragment_info_and">i</string>
-	<string name="fragment_info_tts_error">无法启动阅读器。</string>
-	<string name="fragment_info_tts_language">在设备上查找不到此语言包服务</string>
-	<string name="fragment_info_editar_valoracio">编辑</string>
-	<string name="fragment_info_click_valorar">请按星数来评价作品。</string>
-	<string name="fragment_info_valorar">Valora</string>
-	<string name="fragment_info_comentar">请输入您的评论</string>
-	<string name="fragment_info_carregant">加载中&#8230;</string>
-	<string-array name="fragment_info_valoracions">
-	    <item>很差</item>
-	    <item>差</item>
-	    <item>一般</item>
-	    <item>好</item>
-	    <item>很好</item>
-	</string-array>
-	
-	<string-array name="maps_modes">
-	    <item>一般</item>
-	    <item>综合</item>
-	    <item>卫星</item>
-	    <item>地面</item>
-	    <item>无</item>
-	</string-array>
-	
-	<string-array name="app_language">
-	    <item>加泰罗尼亚语</item>
-	    <item>西班牙语</item>
-	    <item>中文</item>
-	    <item>英语</item>
-	</string-array>
-	
-	<string name="tutorial">教程</string>
-	<string name="tutorial_registrarse">按此键开始注册</string>
-	<string name="tutorial_registrarse2">按此键注册帐户</string>
-	<string name="tutorial_registrarse3">在这里填写您的资料</string>
-	
-	<string name="tutorial_ometre">点击此键跳过登录，直接进入</string>
-	<string name="tutorial_login">点击此键登录</string>
-	
-	<string name="tutorial_main_search">在这里输入您要查找的内容</string>
-	<string name="tutorial_main_settings">点击此处显示您的查找设置</string>
-	<string name="tutorial_main_museus">您的查找结果将会显示在此处。随意点击任何一幅作品来显示它的资料。</string>
-	<string name="tutorial_main_camera">在主屏幕往右划进入二维码扫描模式。</string>
-	<string name="tutorial_main_recon">在主屏幕往左划进入拍照模式。</string>
-	
-	<string name="tutorial_qr">点击屏幕任何一处来开始扫描二维码。</string>
-	
-	<string name="tutorial_llistaObres">随意点击一幅作品来显示他的资料。</string>
-	
-	<string name="tutorial_info">点击图片放大。</string>
-	<string name="tutorial_play">点击此键开始播放或暂停语音阅读。</string>
-	<string name="tutorial_stop">点击此键停止语音阅读。</string>
-	<string name="tutorial_opinions">点击此键隐藏或显示评论</string>
-	<string name="tutorial_informacio">点击此键隐藏或显示作品资料</string>
-	<string name="tutorial_zoom">您可以双点击图片或使用双指来放大它。您可以按后退键退出放大模式.</string>
-	
-	<string name="toast_db_updated">资料库已更新</string>
-	<string name="toast_db_update_error">更新错误</string>
-	<string name="toast_invalid_qr">二维码无效</string>
-	<string name="toast_wrong_qr">二维码错误.\n请确认您的二维码扫描器版本!</string>	
+    <string name="text_tutorial_button">跳过指南</string>
+    <string name="Comenta">发布</string>
+    <string name="description_zoom_touch_close">图片已放大 (按后退键回复原图.)</string>
+    <string name="view_settings">更改地图</string>
 
-	<string name="dialog_ok">选择</string>	    
-	<string name="dialog_si">是的</string>
-	<string name="dialog_no">不</string>
-	<string name="dialog_acceptar">确定</string>
-	<string name="dialog_cancelar">取消</string>
-		    
-	<string name="horari">时间表: </string>
-	<string name="direccio">地址:  </string>
-	<string name="museu">博物馆:  </string>
-	<string name="autor">作者:  </string>
-	
-	<string name="API_no_network">无网络服务可用</string>
-	<string name="API_loading_db">确认本地资料库版本</string>
-	<string name="API_error_connexio">无法连接服务器。</string>
-	<string name="API_error_timeout">连接服务器超时</string>
-	<string name="API_error_json">与服务器的响应发生错误</string>
-	<string name="API_update_error">更新错误</string>
-	
-	<string name="service_title">eMuseum</string>
-	<string name="service_description">eMuseum的服务</string>
-	<string name="service_downloaded">已下载</string>
+    <string name="grid_comentaris_borrar">您确定要删除此评论吗?</string>
+    <string name="grid_comentaris_editar_titol">编辑评论</string>
+    <string name="grid_comentaris_editar">编辑</string>
+
+    <string name="fragment_qr_camera_error">在设备上查找不到相机功能</string>
+    <string name="fragment_info_register">请先登录，再发表留言</string>
+    <string name="fragment_info_register_stars">请先登录，然后再评论</string>
+    <string name="fragment_info_laborables">工作日</string>
+    <string name="fragment_info_festius">节日</string>
+    <string name="fragment_info_and">i</string>
+    <string name="fragment_info_tts_error">无法启动阅读器。</string>
+    <string name="fragment_info_tts_language">在设备上查找不到此语言包服务</string>
+    <string name="fragment_info_editar_valoracio">编辑</string>
+    <string name="fragment_info_click_valorar">请按星数来评价作品。</string>
+    <string name="fragment_info_valorar">Valora</string>
+    <string name="fragment_info_comentar">请输入您的评论</string>
+    <string name="fragment_info_carregant">加载中&#8230;</string>
+    <string-array name="fragment_info_valoracions">
+        <item>很差</item>
+        <item>差</item>
+        <item>一般</item>
+        <item>好</item>
+        <item>很好</item>
+    </string-array>
+
+    <string-array name="maps_modes">
+        <item>一般</item>
+        <item>综合</item>
+        <item>卫星</item>
+        <item>地面</item>
+        <item>无</item>
+    </string-array>
+
+    <string-array name="app_language">
+        <item>加泰罗尼亚语</item>
+        <item>西班牙语</item>
+        <item>中文</item>
+        <item>英语</item>
+    </string-array>
+
+    <string name="tutorial">教程</string>
+    <string name="tutorial_registrarse">按此键开始注册</string>
+    <string name="tutorial_registrarse2">按此键注册帐户</string>
+    <string name="tutorial_registrarse3">在这里填写您的资料</string>
+
+    <string name="tutorial_ometre">点击此键跳过登录，直接进入</string>
+    <string name="tutorial_login">点击此键登录</string>
+
+    <string name="tutorial_main_search">在这里输入您要查找的内容</string>
+    <string name="tutorial_main_settings">点击此处显示您的查找设置</string>
+    <string name="tutorial_main_museus">您的查找结果将会显示在此处。随意点击任何一幅作品来显示它的资料。</string>
+    <string name="tutorial_main_camera">在主屏幕往右划进入二维码扫描模式。</string>
+    <string name="tutorial_main_recon">在主屏幕往左划进入拍照模式。</string>
+
+    <string name="tutorial_qr">点击屏幕任何一处来开始扫描二维码。</string>
+
+    <string name="tutorial_llistaObres">随意点击一幅作品来显示他的资料。</string>
+
+    <string name="tutorial_info">点击图片放大。</string>
+    <string name="tutorial_play">点击此键开始播放或暂停语音阅读。</string>
+    <string name="tutorial_stop">点击此键停止语音阅读。</string>
+    <string name="tutorial_opinions">点击此键隐藏或显示评论</string>
+    <string name="tutorial_informacio">点击此键隐藏或显示作品资料</string>
+    <string name="tutorial_zoom">您可以双点击图片或使用双指来放大它。您可以按后退键退出放大模式.</string>
+
+    <string name="toast_db_updated">资料库已更新</string>
+    <string name="toast_db_update_error">更新错误</string>
+    <string name="toast_invalid_qr">二维码无效</string>
+    <string name="toast_wrong_qr">二维码错误.\n请确认您的二维码扫描器版本!</string>
+
+    <string name="dialog_ok">选择</string>
+    <string name="dialog_si">是的</string>
+    <string name="dialog_no">不</string>
+    <string name="dialog_acceptar">确定</string>
+    <string name="dialog_cancelar">取消</string>
+
+    <string name="horari">时间表: </string>
+    <string name="direccio">地址:  </string>
+    <string name="museu">博物馆:  </string>
+    <string name="autor">作者:  </string>
+
+    <string name="API_no_network">无网络服务可用</string>
+    <string name="API_loading_db">确认本地资料库版本</string>
+    <string name="API_error_connexio">无法连接服务器。</string>
+    <string name="API_error_timeout">连接服务器超时</string>
+    <string name="API_error_json">与服务器的响应发生错误</string>
+    <string name="API_update_error">更新错误</string>
+
+    <string name="service_title">eMuseum</string>
+    <string name="service_description">eMuseum的服务</string>
+    <string name="service_downloaded">已下载</string>
 </resources>
 

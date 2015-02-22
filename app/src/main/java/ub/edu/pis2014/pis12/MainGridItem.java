@@ -8,24 +8,19 @@ import android.widget.TextView;
  * Classe molt simple en la que unicament extenem un TextView
  * En aquest seria obviable pero la mantenim per referencia i per si
  * cal fer futures modificacions al GridView
- * 
- * @author Guillem
  *
+ * @author Guillem
  */
-public class MainGridItem extends TextView
-{
-    public MainGridItem(Context context)
-    {
+public class MainGridItem extends TextView {
+    public MainGridItem(Context context) {
         super(context);
     }
 
-    public MainGridItem(Context context, AttributeSet attrs)
-    {
+    public MainGridItem(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public MainGridItem(Context context, AttributeSet attrs, int defStyle)
-    {
+    public MainGridItem(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 }

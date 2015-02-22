@@ -3,18 +3,18 @@
 <!-- 
 	A partir d'un quadrat creem, mitjançant rotacions, una fletxa que apunta cap abaix.
  -->
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
         <rotate
             android:fromDegrees="45"
             android:toDegrees="45"
             android:pivotX="135%p"
-            android:pivotY="15%p" >
-            <shape
-                android:shape="rectangle" >
-                <stroke android:color="#00000000" android:width="10dp"/>
-                <solid
-                    android:color="@color/lighter_background" />
+            android:pivotY="15%p">
+            <shape android:shape="rectangle">
+                <stroke
+                    android:color="#00000000"
+                    android:width="10dp" />
+                <solid android:color="@color/lighter_background" />
             </shape>
         </rotate>
     </item>

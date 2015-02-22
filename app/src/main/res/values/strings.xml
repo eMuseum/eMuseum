@@ -8,11 +8,11 @@
     <string name="action_iniciar_sessio">Iniciar sessió</string>
     <string name="action_tancar_sessio">Tancar sessió</string>
     <string name="action_canviar_idioma">Canviar idioma</string>
-    
+
     <string name="Benvingut">Benvingut</string>
     <string name="a_eMuseum">a eMuseum</string>
-    
-	<string name="recuperarContrasenya">"Introdueix el teu email i t&apos;enviarem la contrasenya"</string>
+
+    <string name="recuperarContrasenya">"Introdueix el teu email i t&apos;enviarem la contrasenya"</string>
     <string name="enviar_email">Envia</string>
     <string name="recuperarPass"><u>He oblidat la meva contrasenya</u></string>
     <string name="press_back_again">Torna a premer per \n sortir de l\'aplicació</string>
@@ -28,7 +28,7 @@
     <string name="main_actualitzar_msg">Hi ha una actualització de la base de dades, desitja descargarla?\nAl acabar, l\'aplicació es reiniciarà automàticament.</string>
     <string name="maingriditem_image">Informació</string>
     <string name="maingriditem_up_more">Puja per mostrar més</string>
-    <string name="maingriditem_up_click">Deixa anar per mostrar</string>        
+    <string name="maingriditem_up_click">Deixa anar per mostrar</string>
     <string name="tablet_inici_text">Selecciona un museu de l\'esquerra per veure\'n la informació en aquest requadre i les obres en el de l\'esquerra</string>
     <string name="view_search_obra">Per obra</string>
     <string name="view_search_autor">Per autor</string>
@@ -48,108 +48,108 @@
     <string name="toast_registre_email_err">Email invàlid</string>
     <string name="toast_registre_pass_err">Les contrasenyes:\n1-Han de coincidir\n2-Minim 6 lletres</string>
     <string name="toast_registre_pass_ok">Les contrasenyes són correctes!</string>
-	<string name="text_tutorial_button">Omitir Tutorial</string>
-	<string name="Comenta">Comenta</string>
-	<string name="description_zoom_touch_close">Imatge expandida (toca el botó \'enrere\' per tancar)</string>
-	<string name="view_settings">Canviar Vista</string>
-	
-	<string name="grid_comentaris_borrar">Segur que vols borrar el comentari?</string>
-	<string name="grid_comentaris_editar_titol">Editar comentari</string>
-	<string name="grid_comentaris_editar">Edita</string>
-	
-	<string name="fragment_qr_camera_error">No es troba cap càmera</string>
-	<string name="fragment_info_register">Registra\'t per comentar</string>
-    <string name="fragment_info_register_stars">Registra\'t per valorar</string>
-	<string name="fragment_info_laborables">Laborables</string>
-	<string name="fragment_info_festius">Festius</string>
-	<string name="fragment_info_and">i</string>
-	<string name="fragment_info_tts_error">No es pot iniciar l\'intèrpret de veu</string>
-	<string name="fragment_info_tts_language">L\'idioma del sistema no es pot reproduir</string>
-	<string name="fragment_info_editar_valoracio">Editar valoració</string>
-	<string name="fragment_info_click_valorar">Clica en les estrelles per valorar</string>
-	<string name="fragment_info_valorar">Valora</string>
-	<string name="fragment_info_comentar">Escriu un comentari</string>
-	<string name="fragment_info_carregant">Carregant&#8230;</string>
-	<string-array name="fragment_info_valoracions">
-	    <item>Dolent</item>
-	    <item>Pobre</item>
-	    <item>Normal</item>
-	    <item>Bé</item>
-	    <item>Excel·lent</item>
-	</string-array>
-	
-	<string-array name="maps_modes">
-	    <item>Normal</item>
-	    <item>Híbrid</item>
-	    <item>Satèl·Lit</item>
-	    <item>Terreny</item>
-	    <item>Cap</item>
-	</string-array>
-	
-	<string-array name="app_language">
-	    <item>Català</item>
-	    <item>Castellà</item>
-	    <item>Xinès</item>
-	    <item>Anglès</item>
-	</string-array>
-	
-	<string name="tutorial">Tutorial</string>
-	<string name="tutorial_registrarse">Prem aquest botó per iniciar el registre</string>
-	<string name="tutorial_registrarse2">Prem aquest botó per registrar-te</string>
-	<string name="tutorial_registrarse3">Has d\'omplir els camps amb les teves dades</string>
-	
-	<string name="tutorial_ometre">Prem aquest botó per entrar com a usuari anònim</string>
-	<string name="tutorial_login">Prem aquest boto per entrar a la aplicació amb el teu usuari</string>
-	
-	<string name="tutorial_main_search">Escriu aquí el que desitgis buscar</string>
-	<string name="tutorial_main_settings">Prem aquí per configurar les preferencies de la teva cerca</string>
-	<string name="tutorial_main_museus">Aquí es mostren els resultats de la cerca. Prem sobre un d\'ells per accedir a la seva informació</string>
-	<string name="tutorial_main_camera">Fes aquest gest per anar a l\'escaneig de QR i reconeixement</string>
-	
-	<string name="tutorial_qr">Toca la pantalla per escanejar un codi QR</string>
-	
-	<string name="tutorial_llistaObres">Prem sobre una de les obres per accedir a la seva informació</string>
-	
-	<string name="tutorial_info">Prem a la imatge per ampliar-la</string>
-	<string name="tutorial_play">Prem el botó per reproduir l\'audiodescripció o aturar-la</string>
-	<string name="tutorial_stop">Prem el botó per aturar la reproducció</string>
-	<string name="tutorial_opinions">Prem aquest botó per mostrar o amagar les opinions de l\'obra</string>
-	<string name="tutorial_informacio">Prem aquest botó per mostrar o amagar la descripció de l\'obra</string>
-	<string name="tutorial_zoom">Pots ampliar la imatge fent doble click o amb dos dits, a més de moure-la.\nPer tornar enrere fes servir la fletxa d\'android</string>
-	
-	<string name="toast_db_updated">Base de dades actualitzada</string>
-	<string name="toast_db_update_error">Error durant l\'actualitzacio</string>
-	<string name="toast_invalid_qr">El codi QR no és vàlid</string>
-	<string name="toast_wrong_qr">No es troba la referència.\nPot ser que tinguis una versió desactualitzada?</string>
-	<string name="toast_tts_error">Es necessària una targeta SD externa</string>	
+    <string name="text_tutorial_button">Omitir Tutorial</string>
+    <string name="Comenta">Comenta</string>
+    <string name="description_zoom_touch_close">Imatge expandida (toca el botó \'enrere\' per tancar)</string>
+    <string name="view_settings">Canviar Vista</string>
 
-	<string name="dialog_ok">Ok</string>	    
-	<string name="dialog_si">Sí</string>
-	<string name="dialog_no">No</string>
-	<string name="dialog_acceptar">Acceptar</string>
-	<string name="dialog_cancelar">Cancelar</string>
-		    
-	<string name="horari">Horari: </string>
-	<string name="direccio">Direcció:  </string>
-	<string name="museu">Museu:  </string>
-	<string name="autor">Autor:  </string>
-	
-	<string name="API_no_network">No tens connexió a internet</string>
-	<string name="API_loading_db">Comprobant versió\nde la base de dades</string>
-	<string name="API_downloading_db">Descarregant nova versió de la base de dades</string>
-	<string name="API_error_connexio">No es pot connectar amb el servidor</string>
-	<string name="API_error_timeout">Temps de lectura esgotat</string>
-	<string name="API_error_json">Format de resposta inesperat</string>
-	<string name="API_update_error">Error al actualitzar</string>
-	<string name="API_sending_image">Enviant la imatge al servidor</string>
-	
-	<string name="RECON_error_bitmap">No s\'ha pogut fer la captura</string>
-	<string name="RECON_error_unknown">No s\'ha pogut reconeixer la obra</string>
-	
-	<string name="service_title">eMuseum</string>
-	<string name="service_description">Servei d\'eMuseum</string>
-	<string name="service_downloaded">descarregat</string>
-	
-	<string name= "toast_tts">Convertint el text en audio&#8230;</string>
+    <string name="grid_comentaris_borrar">Segur que vols borrar el comentari?</string>
+    <string name="grid_comentaris_editar_titol">Editar comentari</string>
+    <string name="grid_comentaris_editar">Edita</string>
+
+    <string name="fragment_qr_camera_error">No es troba cap càmera</string>
+    <string name="fragment_info_register">Registra\'t per comentar</string>
+    <string name="fragment_info_register_stars">Registra\'t per valorar</string>
+    <string name="fragment_info_laborables">Laborables</string>
+    <string name="fragment_info_festius">Festius</string>
+    <string name="fragment_info_and">i</string>
+    <string name="fragment_info_tts_error">No es pot iniciar l\'intèrpret de veu</string>
+    <string name="fragment_info_tts_language">L\'idioma del sistema no es pot reproduir</string>
+    <string name="fragment_info_editar_valoracio">Editar valoració</string>
+    <string name="fragment_info_click_valorar">Clica en les estrelles per valorar</string>
+    <string name="fragment_info_valorar">Valora</string>
+    <string name="fragment_info_comentar">Escriu un comentari</string>
+    <string name="fragment_info_carregant">Carregant&#8230;</string>
+    <string-array name="fragment_info_valoracions">
+        <item>Dolent</item>
+        <item>Pobre</item>
+        <item>Normal</item>
+        <item>Bé</item>
+        <item>Excel·lent</item>
+    </string-array>
+
+    <string-array name="maps_modes">
+        <item>Normal</item>
+        <item>Híbrid</item>
+        <item>Satèl·Lit</item>
+        <item>Terreny</item>
+        <item>Cap</item>
+    </string-array>
+
+    <string-array name="app_language">
+        <item>Català</item>
+        <item>Castellà</item>
+        <item>Xinès</item>
+        <item>Anglès</item>
+    </string-array>
+
+    <string name="tutorial">Tutorial</string>
+    <string name="tutorial_registrarse">Prem aquest botó per iniciar el registre</string>
+    <string name="tutorial_registrarse2">Prem aquest botó per registrar-te</string>
+    <string name="tutorial_registrarse3">Has d\'omplir els camps amb les teves dades</string>
+
+    <string name="tutorial_ometre">Prem aquest botó per entrar com a usuari anònim</string>
+    <string name="tutorial_login">Prem aquest boto per entrar a la aplicació amb el teu usuari</string>
+
+    <string name="tutorial_main_search">Escriu aquí el que desitgis buscar</string>
+    <string name="tutorial_main_settings">Prem aquí per configurar les preferencies de la teva cerca</string>
+    <string name="tutorial_main_museus">Aquí es mostren els resultats de la cerca. Prem sobre un d\'ells per accedir a la seva informació</string>
+    <string name="tutorial_main_camera">Fes aquest gest per anar a l\'escaneig de QR i reconeixement</string>
+
+    <string name="tutorial_qr">Toca la pantalla per escanejar un codi QR</string>
+
+    <string name="tutorial_llistaObres">Prem sobre una de les obres per accedir a la seva informació</string>
+
+    <string name="tutorial_info">Prem a la imatge per ampliar-la</string>
+    <string name="tutorial_play">Prem el botó per reproduir l\'audiodescripció o aturar-la</string>
+    <string name="tutorial_stop">Prem el botó per aturar la reproducció</string>
+    <string name="tutorial_opinions">Prem aquest botó per mostrar o amagar les opinions de l\'obra</string>
+    <string name="tutorial_informacio">Prem aquest botó per mostrar o amagar la descripció de l\'obra</string>
+    <string name="tutorial_zoom">Pots ampliar la imatge fent doble click o amb dos dits, a més de moure-la.\nPer tornar enrere fes servir la fletxa d\'android</string>
+
+    <string name="toast_db_updated">Base de dades actualitzada</string>
+    <string name="toast_db_update_error">Error durant l\'actualitzacio</string>
+    <string name="toast_invalid_qr">El codi QR no és vàlid</string>
+    <string name="toast_wrong_qr">No es troba la referència.\nPot ser que tinguis una versió desactualitzada?</string>
+    <string name="toast_tts_error">Es necessària una targeta SD externa</string>
+
+    <string name="dialog_ok">Ok</string>
+    <string name="dialog_si">Sí</string>
+    <string name="dialog_no">No</string>
+    <string name="dialog_acceptar">Acceptar</string>
+    <string name="dialog_cancelar">Cancelar</string>
+
+    <string name="horari">Horari: </string>
+    <string name="direccio">Direcció:  </string>
+    <string name="museu">Museu:  </string>
+    <string name="autor">Autor:  </string>
+
+    <string name="API_no_network">No tens connexió a internet</string>
+    <string name="API_loading_db">Comprobant versió\nde la base de dades</string>
+    <string name="API_downloading_db">Descarregant nova versió de la base de dades</string>
+    <string name="API_error_connexio">No es pot connectar amb el servidor</string>
+    <string name="API_error_timeout">Temps de lectura esgotat</string>
+    <string name="API_error_json">Format de resposta inesperat</string>
+    <string name="API_update_error">Error al actualitzar</string>
+    <string name="API_sending_image">Enviant la imatge al servidor</string>
+
+    <string name="RECON_error_bitmap">No s\'ha pogut fer la captura</string>
+    <string name="RECON_error_unknown">No s\'ha pogut reconeixer la obra</string>
+
+    <string name="service_title">eMuseum</string>
+    <string name="service_description">Servei d\'eMuseum</string>
+    <string name="service_downloaded">descarregat</string>
+
+    <string name="toast_tts">Convertint el text en audio&#8230;</string>
 </resources>
 

@@ -8,11 +8,11 @@
     <string name="action_iniciar_sessio">Iniciar sesión</string>
     <string name="action_tancar_sessio">Cerrar sesión</string>
     <string name="action_canviar_idioma">Cambiar idioma</string>
-    
+
     <string name="Benvingut">Bienvenido</string>
     <string name="a_eMuseum">a eMuseum</string>
-    
-    
+
+
     <string name="recuperarContrasenya">"Introduce tu email i te enviaremos la contraseña"</string>
     <string name="recuperarPass"><u>He olvidado mi contraseña</u></string>
     <string name="press_back_again">Vuelve a pulsar para salir de la aplicación</string>
@@ -28,7 +28,7 @@
     <string name="main_actualitzar_msg">Hay una actualización de la base de datos, deseas descargarla?\nAl acabar, la aplicación se reiniciara automáticamente.</string>
     <string name="maingriditem_image">Información</string>
     <string name="maingriditem_up_more">Sube para mostrar más.</string>
-    <string name="maingriditem_up_click">Deja ir para mostrar.</string>        
+    <string name="maingriditem_up_click">Deja ir para mostrar.</string>
     <string name="tablet_inici_text">Selecciona un museo de la izquierda para ver\n su información en este recuadro y las obras en el de la izquierda.</string>
     <string name="view_search_obra">Por obra</string>
     <string name="view_search_autor">Por autor</string>
@@ -48,107 +48,107 @@
     <string name="toast_registre_email_err">Email inválido</string>
     <string name="toast_registre_pass_err">Las contraseñas:\n1-Han de coincidir\n2-Mínimo 6 letras</string>
     <string name="toast_registre_pass_ok">Las contraseñas son correctas!</string>
-	<string name="text_tutorial_button">Omitir Tutorial</string>
-	<string name="Comenta">Comenta</string>
-	<string name="description_zoom_touch_close">Imagen expandida (toca el botón \'Atrás\' para cerrar.)</string>
-	<string name="view_settings">Cambiar Vista</string>
-	
-	<string name="grid_comentaris_borrar">Seguro que quieres borrar este comentario?</string>
-	<string name="grid_comentaris_editar_titol">Editar comentario</string>
-	<string name="grid_comentaris_editar">Edita</string>
-	
-	<string name="fragment_qr_camera_error">No hay ningún cámara en el móvil.</string>
-	<string name="fragment_info_register">Registrate para poder comentar</string>
+    <string name="text_tutorial_button">Omitir Tutorial</string>
+    <string name="Comenta">Comenta</string>
+    <string name="description_zoom_touch_close">Imagen expandida (toca el botón \'Atrás\' para cerrar.)</string>
+    <string name="view_settings">Cambiar Vista</string>
+
+    <string name="grid_comentaris_borrar">Seguro que quieres borrar este comentario?</string>
+    <string name="grid_comentaris_editar_titol">Editar comentario</string>
+    <string name="grid_comentaris_editar">Edita</string>
+
+    <string name="fragment_qr_camera_error">No hay ningún cámara en el móvil.</string>
+    <string name="fragment_info_register">Registrate para poder comentar</string>
     <string name="fragment_info_register_stars">Registrate para poder valorar</string>
-	<string name="fragment_info_laborables">Laborables</string>
-	<string name="fragment_info_festius">Festivos</string>
-	<string name="fragment_info_and">y</string>
-	<string name="fragment_info_tts_error">No ha podido iniciar el interprete de la voz</string>
-	<string name="fragment_info_tts_language">No hay paquete de voz para el idioma actual del dispositivo</string>
-	<string name="fragment_info_editar_valoracio">Editar valoración</string>
-	<string name="fragment_info_click_valorar">Clica en las estrellas para valorar</string>
-	<string name="fragment_info_valorar">Valora</string>
-	<string name="fragment_info_comentar">Escribe un comentario</string>
-	<string name="fragment_info_carregant">Cargando&#8230;</string>
-	<string-array name="fragment_info_valoracions">
-	    <item>Malo</item>
-	    <item>Pobre</item>
-	    <item>Normal</item>
-	    <item>Bueno</item>
-	    <item>Excelente</item>
-	</string-array>
-	
-	<string-array name="maps_modes">
-	    <item>Normal</item>
-	    <item>Híbrido</item>
-	    <item>Satélite</item>
-	    <item>Terreno</item>
-	    <item>Ninguno</item>
-	</string-array>
-	
-	<string-array name="app_language">
-	    <item>Catalán</item>
-	    <item>Español</item>
-	    <item>Chino</item>
-	    <item>Inglés</item>
-	</string-array>
-	
-	<string name="tutorial">Tutorial</string>
-	<string name="tutorial_registrarse">Pulsa este botón para empezar a registrarte.</string>
-	<string name="tutorial_registrarse2">Pulsa este botón para registrarte.</string>
-	<string name="tutorial_registrarse3">Tienes que llenar los campos con tus datos.</string>
-	
-	<string name="tutorial_ometre">Pulsa este botón para entra como usuario anónimo.</string>
-	<string name="tutorial_login">Pulsa este botón para entra con tu cuenta de usuario.</string>
-	
-	<string name="tutorial_main_search">Escribe aquí lo que quieres buscar.</string>
-	<string name="tutorial_main_settings">Pulsa aquí para configurar las preferencias de tus búsquedas.</string>
-	<string name="tutorial_main_museus">Aquí se muestra los resultados de la búsqueda.Pulsa sobre uno de los resultado para acceder a su información.</string>
-	<string name="tutorial_main_camera">Haz este gesto para inicializar el escaneo de QR y reconocimiento de imágenes</string>
-	
-	<string name="tutorial_qr">Toca la pantalla per escanear un código QR</string>
-	
-	<string name="tutorial_llistaObres">Pulsa sobre una de las obras para acceder a su información.</string>
-	
-	<string name="tutorial_info">Pulsa la imagen para ampliarla.</string>
-	<string name="tutorial_play">Pulsa el botón para reproducir el audiodescripción o pausarlo.</string>
-	<string name="tutorial_stop">Pulsa el botón para parar la reproducción.</string>
-	<string name="tutorial_opinions">Pulsa este botón para mostrar o ocultar los comentarios de la obra.</string>
-	<string name="tutorial_informacio">Pulsa este botón para mostrar o ocultar la descripción de la obra.</string>
+    <string name="fragment_info_laborables">Laborables</string>
+    <string name="fragment_info_festius">Festivos</string>
+    <string name="fragment_info_and">y</string>
+    <string name="fragment_info_tts_error">No ha podido iniciar el interprete de la voz</string>
+    <string name="fragment_info_tts_language">No hay paquete de voz para el idioma actual del dispositivo</string>
+    <string name="fragment_info_editar_valoracio">Editar valoración</string>
+    <string name="fragment_info_click_valorar">Clica en las estrellas para valorar</string>
+    <string name="fragment_info_valorar">Valora</string>
+    <string name="fragment_info_comentar">Escribe un comentario</string>
+    <string name="fragment_info_carregant">Cargando&#8230;</string>
+    <string-array name="fragment_info_valoracions">
+        <item>Malo</item>
+        <item>Pobre</item>
+        <item>Normal</item>
+        <item>Bueno</item>
+        <item>Excelente</item>
+    </string-array>
+
+    <string-array name="maps_modes">
+        <item>Normal</item>
+        <item>Híbrido</item>
+        <item>Satélite</item>
+        <item>Terreno</item>
+        <item>Ninguno</item>
+    </string-array>
+
+    <string-array name="app_language">
+        <item>Catalán</item>
+        <item>Español</item>
+        <item>Chino</item>
+        <item>Inglés</item>
+    </string-array>
+
+    <string name="tutorial">Tutorial</string>
+    <string name="tutorial_registrarse">Pulsa este botón para empezar a registrarte.</string>
+    <string name="tutorial_registrarse2">Pulsa este botón para registrarte.</string>
+    <string name="tutorial_registrarse3">Tienes que llenar los campos con tus datos.</string>
+
+    <string name="tutorial_ometre">Pulsa este botón para entra como usuario anónimo.</string>
+    <string name="tutorial_login">Pulsa este botón para entra con tu cuenta de usuario.</string>
+
+    <string name="tutorial_main_search">Escribe aquí lo que quieres buscar.</string>
+    <string name="tutorial_main_settings">Pulsa aquí para configurar las preferencias de tus búsquedas.</string>
+    <string name="tutorial_main_museus">Aquí se muestra los resultados de la búsqueda.Pulsa sobre uno de los resultado para acceder a su información.</string>
+    <string name="tutorial_main_camera">Haz este gesto para inicializar el escaneo de QR y reconocimiento de imágenes</string>
+
+    <string name="tutorial_qr">Toca la pantalla per escanear un código QR</string>
+
+    <string name="tutorial_llistaObres">Pulsa sobre una de las obras para acceder a su información.</string>
+
+    <string name="tutorial_info">Pulsa la imagen para ampliarla.</string>
+    <string name="tutorial_play">Pulsa el botón para reproducir el audiodescripción o pausarlo.</string>
+    <string name="tutorial_stop">Pulsa el botón para parar la reproducción.</string>
+    <string name="tutorial_opinions">Pulsa este botón para mostrar o ocultar los comentarios de la obra.</string>
+    <string name="tutorial_informacio">Pulsa este botón para mostrar o ocultar la descripción de la obra.</string>
 	<string name="tutorial_zoom">Puedes ampliar la imagen haciendo doble click o con los dos dedos, también puedes moverla.
 	    \nPulsa el botón "Atrás" para salir de esta vista.</string>
-	
-	<string name="toast_db_updated">Base de datos actualizado</string>
-	<string name="toast_db_update_error">Error durante la actualización</string>
-	<string name="toast_invalid_qr">El código QR no es válido</string>
-	<string name="toast_wrong_qr">No se ha encontrado la referencia.\nPueda que tengas una versión desactualizada!</string>
-	<string name="toast_tts_error">Necesitas una targeta SD externa</string>	
 
-	<string name="dialog_ok">Seleccionar</string>	    
-	<string name="dialog_si">Sí</string>
-	<string name="dialog_no">No</string>
-	<string name="dialog_acceptar">Aceptar</string>
-	<string name="dialog_cancelar">Cancelar</string>
-		    
-	<string name="horari">Horario: </string>
-	<string name="direccio">Dirección:  </string>
-	<string name="museu">Museo:  </string>
-	<string name="autor">Autor:  </string>
-	
-	<string name="API_no_network">No tienes conexión a internet</string>
-	<string name="API_loading_db">Comprobando versión\nde la base de datos</string>
-	<string name="API_downloading_db">Descarregando nueva versión de la base de datos</string>
-	<string name="API_error_connexio">No se puede conectar con el servidor.</string>
-	<string name="API_error_timeout">Tiempo de lectura agotado</string>
-	<string name="API_error_json">Formato de resposta inesperado</string>
-	<string name="API_update_error">Error al actualizar</string>
-	<string name="API_sending_image">Enviando imagen al servidor</string>
-	
-	<string name="RECON_error_bitmap">No se ha podido hacer la captura</string>
-	<string name="RECON_error_unknown">No se ha podido reconocer la obra</string>
-	
-	<string name="service_title">eMuseum</string>
-	<string name="service_description">Servicio de eMuseum</string>
-	<string name="service_downloaded">descargado</string>
+    <string name="toast_db_updated">Base de datos actualizado</string>
+    <string name="toast_db_update_error">Error durante la actualización</string>
+    <string name="toast_invalid_qr">El código QR no es válido</string>
+    <string name="toast_wrong_qr">No se ha encontrado la referencia.\nPueda que tengas una versión desactualizada!</string>
+    <string name="toast_tts_error">Necesitas una targeta SD externa</string>
+
+    <string name="dialog_ok">Seleccionar</string>
+    <string name="dialog_si">Sí</string>
+    <string name="dialog_no">No</string>
+    <string name="dialog_acceptar">Aceptar</string>
+    <string name="dialog_cancelar">Cancelar</string>
+
+    <string name="horari">Horario: </string>
+    <string name="direccio">Dirección:  </string>
+    <string name="museu">Museo:  </string>
+    <string name="autor">Autor:  </string>
+
+    <string name="API_no_network">No tienes conexión a internet</string>
+    <string name="API_loading_db">Comprobando versión\nde la base de datos</string>
+    <string name="API_downloading_db">Descarregando nueva versión de la base de datos</string>
+    <string name="API_error_connexio">No se puede conectar con el servidor.</string>
+    <string name="API_error_timeout">Tiempo de lectura agotado</string>
+    <string name="API_error_json">Formato de resposta inesperado</string>
+    <string name="API_update_error">Error al actualizar</string>
+    <string name="API_sending_image">Enviando imagen al servidor</string>
+
+    <string name="RECON_error_bitmap">No se ha podido hacer la captura</string>
+    <string name="RECON_error_unknown">No se ha podido reconocer la obra</string>
+
+    <string name="service_title">eMuseum</string>
+    <string name="service_description">Servicio de eMuseum</string>
+    <string name="service_downloaded">descargado</string>
 </resources>
 

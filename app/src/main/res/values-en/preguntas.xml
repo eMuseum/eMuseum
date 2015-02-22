@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="listaPreguntas" >
+    <string-array name="listaPreguntas">
         <item>How to log in?</item>
         <item>How to log out?</item>
-	    <item>How can i comment a painting?</item>
-	    <item>How to search?</item>
-	    <item>How scan QR code?</item>
-	    <item>Utility of the camera</item>
-	    <item>How to setting search?</item>
-	    <item>How to sort the search results?</item>
-	    <item>How to play or pause audiodescription?</item>
+        <item>How can i comment a painting?</item>
+        <item>How to search?</item>
+        <item>How scan QR code?</item>
+        <item>Utility of the camera</item>
+        <item>How to setting search?</item>
+        <item>How to sort the search results?</item>
+        <item>How to play or pause audiodescription?</item>
     </string-array>
-    
+
     <string-array name="listaRespuestas">
         
         <item>In start screen,entry yout username and password and then press "Log in" button to log in.You can go start menu from
@@ -26,10 +26,10 @@
             
         <item>In the textView of main screen,entry what you want to search.You can only do the 
             search in the home screen.</item>
-            
+
         <item>Slide left to right from home screen to open QR Scanner.</item>
-        
-        
+
+
         <item>The app uses camera to scan QR code and take a painting photo,then the app send the photo to server for recognize what painting is. </item>
               
         <item>For set the search,you must press green triangular button that found in main screen.You can set the type of element 
@@ -37,8 +37,8 @@
              
         <item>For sort the search results,you must press green triangular button that found in main screen.After that,you can see a dialog with the preference
             of search.And in the bottom of dialog you can see a section that is "Order by:".In here you can set the way that you want to sort the search results. </item>
-            
+
         <item>Press play button to play or pause the audiodescription.</item>
-        
+
     </string-array>
 </resources>

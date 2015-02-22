@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!-- Indiquem que es tracta d'una shape (forma)  -->
-<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle" >
-	<!-- 
-		Indiquem el color de fons en format ARGB.
-		En aquest cas, A(ALPHA) = 00 i per tant es transparent	
-	-->
-	<solid android:color="@color/element_comentari" />
-	
-	<!-- 
-		Indiquem que utilitzarem un borde de 3dip de tamany i el color
-	 -->
-	<stroke android:width="1dip" android:color="@color/background"/>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <!--
+        Indiquem el color de fons en format ARGB.
+        En aquest cas, A(ALPHA) = 00 i per tant es transparent
+    -->
+    <solid android:color="@color/element_comentari" />
+
+    <!--
+        Indiquem que utilitzarem un borde de 3dip de tamany i el color
+     -->
+    <stroke
+        android:width="1dip"
+        android:color="@color/background" />
 </shape>

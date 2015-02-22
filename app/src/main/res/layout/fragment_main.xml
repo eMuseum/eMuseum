@@ -7,16 +7,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="top"
-    tools:context=".MainFragment" >
+    tools:context=".MainFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/splash_titol"
@@ -38,19 +38,19 @@
                 android:lines="1"
                 android:maxLines="1"
                 android:singleLine="true"
-                android:imeOptions="actionNext" >
+                android:imeOptions="actionNext">
 
                 <requestFocus />
             </EditText>
-                        
-			<Button
-			    android:id="@+id/main_show_settings"
-			    android:layout_width="40dp"
-			    android:layout_height="40dp"
-			    android:layout_marginBottom="-20dp"
-			    android:layout_marginLeft="-35dp"
-			    android:layout_marginTop="20dp"
-			    android:background="@drawable/arrow_down" />
+
+            <Button
+                android:id="@+id/main_show_settings"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="-20dp"
+                android:layout_marginLeft="-35dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/arrow_down" />
 
         </LinearLayout>
 
@@ -60,11 +60,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:numColumns="1" >
-        </GridView>
+            android:numColumns="1"></GridView>
 
     </LinearLayout>
-        
+
     <include
         android:id="@+id/main_search_settings"
         android:layout_width="fill_parent"
@@ -77,22 +76,22 @@
         android:visibility="gone"
         layout="@layout/view_search_menu" />
 
-    	<!-- 
-    		Per editar el layout original cal eliminar les lines de layout, background i visibility;
-    		ja que efecten directament al layout i fan que no es vegi.
-    		Cal tornar-les a posar per correr l'aplicació.
-    	 -->
-		<!-- 
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:background="#00000000"
-        android:visibility="gone"
-        -->
+    <!--
+        Per editar el layout original cal eliminar les lines de layout, background i visibility;
+        ja que efecten directament al layout i fan que no es vegi.
+        Cal tornar-les a posar per correr l'aplicació.
+     -->
+    <!--
+    android:layout_marginTop="50dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    android:background="#00000000"
+    android:visibility="gone"
+    -->
 
     <include
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         layout="@layout/view_load_layout" />
-    
+
 </FrameLayout>

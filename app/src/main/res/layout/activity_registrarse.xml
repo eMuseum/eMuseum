@@ -2,23 +2,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Registrarse" >
-    
+    tools:context=".Registrarse">
+
     <LinearLayout
         android:id="@+id/LinearLayout2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-    	android:background="@color/background"
-        android:orientation="vertical" >
+        android:background="@color/background"
+        android:orientation="vertical">
 
         <FrameLayout
             android:id="@+id/login_frame"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
                 <LinearLayout
                     android:id="@+id/register_layout"
@@ -28,11 +28,11 @@
                     android:layout_centerVertical="true"
                     android:background="@drawable/login_frame"
                     android:orientation="vertical"
-                    android:padding="15dp" >
+                    android:padding="15dp">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" >
+                        android:layout_height="wrap_content">
 
                         <EditText
                             android:id="@+id/registrat_username"
@@ -50,7 +50,7 @@
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" >
+                        android:layout_height="wrap_content">
 
                         <EditText
                             android:id="@+id/registrat_email"
@@ -67,11 +67,11 @@
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" >
+                        android:layout_height="wrap_content">
 
                         <LinearLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" >
+                            android:layout_height="wrap_content">
 
                             <EditText
                                 android:id="@+id/registrat_password"
@@ -87,7 +87,7 @@
                             <RelativeLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:layout_weight="1" >
+                                android:layout_weight="1">
 
                                 <ImageView
                                     android:id="@+id/registrat_img_no_confirm1"
@@ -112,11 +112,11 @@
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" >
+                        android:layout_height="wrap_content">
 
                         <LinearLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" >
+                            android:layout_height="wrap_content">
 
                             <EditText
                                 android:id="@+id/registrat_repeteix_pass"
@@ -132,7 +132,7 @@
                             <RelativeLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:layout_weight="1" >
+                                android:layout_weight="1">
 
                                 <ImageView
                                     android:id="@+id/registrat_img_no_confirm2"
@@ -155,7 +155,7 @@
 
                     </RelativeLayout>
                 </LinearLayout>
-                
+
                 <LinearLayout
                     android:id="@+id/loading_layout"
                     android:layout_width="wrap_content"
@@ -165,16 +165,16 @@
                     android:background="@drawable/login_frame"
                     android:orientation="vertical"
                     android:visibility="gone"
-                    android:padding="15dp" >
+                    android:padding="15dp">
 
                     <ProgressBar
                         android:id="@+id/splash_loading"
                         style="?android:attr/progressBarStyleLarge"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
-                    
-           		</LinearLayout>
-           		
+
+                </LinearLayout>
+
             </RelativeLayout>
 
         </FrameLayout>
@@ -189,11 +189,11 @@
         android:layout_alignParentLeft="true"
         android:background="@drawable/login_register_bar"
         android:orientation="horizontal"
-        android:weightSum="1" >
+        android:weightSum="1">
 
         <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
             <Button
                 android:id="@+id/registrat_registrarse"

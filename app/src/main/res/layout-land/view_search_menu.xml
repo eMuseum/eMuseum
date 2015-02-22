@@ -15,11 +15,11 @@
     android:layout_marginTop="50dp"
     android:layout_marginLeft="5dp"
     android:layout_marginRight="5dp"
-    android:padding="15dp" >
+    android:padding="15dp">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content">
 
         <CheckBox
             android:id="@+id/view_search_per_museu"
@@ -51,6 +51,6 @@
     <Spinner
         android:id="@+id/view_search_ordre"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

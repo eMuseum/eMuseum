@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="ub.edu.pis2014.pis12" >
+    package="ub.edu.pis2014.pis12">
 
     <uses-sdk
         android:minSdkVersion="8"
@@ -31,7 +31,7 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/project_app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <uses-library android:name="com.google.android.maps" />
 
         <service
@@ -45,20 +45,17 @@
         <activity
             android:name="ub.edu.pis2014.pis12.MainActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:label="@string/project_app_name" >
-        </activity>
+            android:label="@string/project_app_name"></activity>
         <activity
             android:name="ub.edu.pis2014.pis12.InfoActivity"
             android:label="@string/project_app_name"
-            android:windowSoftInputMode="stateAlwaysHidden" >
-        </activity>
+            android:windowSoftInputMode="stateAlwaysHidden"></activity>
         <activity
             android:name="ub.edu.pis2014.pis12.LlistaObresActivity"
-            android:label="@string/project_app_name" >
-        </activity>
+            android:label="@string/project_app_name"></activity>
         <activity
             android:name="ub.edu.pis2014.pis12.SplashActivity"
-            android:label="@string/project_app_name" >
+            android:label="@string/project_app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -67,20 +64,16 @@
         </activity>
         <activity
             android:name="ub.edu.pis2014.pis12.Registrarse"
-            android:label="@string/title_activity_registrarse" >
-        </activity>
+            android:label="@string/title_activity_registrarse"></activity>
         <activity
             android:name="ub.edu.pis2014.pis12.RecuperarPass"
-            android:label="@string/project_app_name" >
-        </activity>
+            android:label="@string/project_app_name"></activity>
         <activity
             android:name="ub.edu.pis2014.pis12.AjudaActivity"
-            android:label="@string/action_ajuda" >
-        </activity>
+            android:label="@string/action_ajuda"></activity>
         <activity
             android:name="ub.edu.pis2014.pis12.SettingsActivity"
-            android:label="@string/title_activity_settings" >
-        </activity>
+            android:label="@string/title_activity_settings"></activity>
         <!--
         <activity
             android:name="com.google.zxing.client.android.CaptureActivity"
@@ -106,7 +99,7 @@
             android:name="ub.edu.pis2014.pis12.MapsActivity"
             android:configChanges="orientation"
             android:label="@string/project_app_name"
-            android:theme="@android:style/Theme.NoTitleBar" >
+            android:theme="@android:style/Theme.NoTitleBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

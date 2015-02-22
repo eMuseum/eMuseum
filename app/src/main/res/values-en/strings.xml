@@ -8,10 +8,10 @@
     <string name="action_iniciar_sessio">Log in</string>
     <string name="action_tancar_sessio">Log out</string>
     <string name="action_canviar_idioma">Change app language</string>
-    
+
     <string name="Benvingut">Welcome</string>
     <string name="a_eMuseum">to eMuseum</string>
-    
+
     <string name="recuperarContrasenya">"Enter your email and we'll send you your password"</string>
     <string name="enviar_email">Send</string>
     <string name="recuperarPass"><u>I forgot the password</u></string>
@@ -28,7 +28,7 @@
     <string name="main_actualitzar_msg">New update is available, do you want download it?\nWhen it finishes, the app will automatically restart.</string>
     <string name="maingriditem_image">Information</string>
     <string name="maingriditem_up_more">Rise it to show more</string>
-    <string name="maingriditem_up_click">Release to load</string>        
+    <string name="maingriditem_up_click">Release to load</string>
     <string name="tablet_inici_text">Select a museum from the left to see\n its information in this frame a its paintings in the left.</string>
     <string name="view_search_obra">By painting</string>
     <string name="view_search_autor">By author</string>
@@ -48,108 +48,108 @@
     <string name="toast_registre_email_err">Invalid Email</string>
     <string name="toast_registre_pass_err">The two password aren\'t the same!</string>
     <string name="toast_registre_pass_ok">Correct Password!</string>
-	<string name="text_tutorial_button">Skip Tutorial</string>
-	<string name="Comenta">Comments</string>
-	<string name="description_zoom_touch_close">Expanded image (Press "Back" to exit)</string>
-	
-	<string name="view_settings">Change map view</string>
-	
-	<string name="grid_comentaris_borrar">Are you sure you want to remove this comment?</string>
-	<string name="grid_comentaris_editar_titol">Edit comments</string>
-	<string name="grid_comentaris_editar">Edit</string>
-	
-	<string name="fragment_qr_camera_error">No camera module found in the device.</string>
-	<string name="fragment_info_register">You must to be logged in to post comments.</string>
+    <string name="text_tutorial_button">Skip Tutorial</string>
+    <string name="Comenta">Comments</string>
+    <string name="description_zoom_touch_close">Expanded image (Press "Back" to exit)</string>
+
+    <string name="view_settings">Change map view</string>
+
+    <string name="grid_comentaris_borrar">Are you sure you want to remove this comment?</string>
+    <string name="grid_comentaris_editar_titol">Edit comments</string>
+    <string name="grid_comentaris_editar">Edit</string>
+
+    <string name="fragment_qr_camera_error">No camera module found in the device.</string>
+    <string name="fragment_info_register">You must to be logged in to post comments.</string>
     <string name="fragment_info_register_stars">You must to be logged in to rate.</string>
-	<string name="fragment_info_laborables">Weekdays</string>
-	<string name="fragment_info_festius">Holidays</string>
-	<string name="fragment_info_and">and</string>
-	<string name="fragment_info_tts_error">Failed to initialize voice service.</string>
-	<string name="fragment_info_tts_language">No audio description available for device language</string>
-	<string name="fragment_info_editar_valoracio">Edit rating</string>
-	<string name="fragment_info_click_valorar">Touch stars to rate the painting.</string>
-	<string name="fragment_info_valorar">Rate</string>
-	<string name="fragment_info_comentar">Write here your comment</string>
-	<string name="fragment_info_carregant">Loading&#8230;</string>
-	<string-array name="fragment_info_valoracions">
-	    <item>Bad</item>
-	    <item>Poor</item>
-	    <item>Normal</item>
-	    <item>Good</item>
-	    <item>Excellent</item>
-	</string-array>
-	
-	<string-array name="maps_modes">
-	    <item>Normal</item>
-	    <item>Hybrid</item>
-	    <item>Satellite</item>
-	    <item>Terrain</item>
-	    <item>None</item>
-	</string-array>
-	
-	<string-array name="app_language">
-	    <item>Catalan</item>
-	    <item>Spanish</item>
-	    <item>Chinese</item>
-	    <item>English</item>
-	</string-array>
-	
-	<string name="tutorial">Tutorial</string>
-	<string name="tutorial_registrarse">Press this button to start registering.</string>
-	<string name="tutorial_registrarse2">Press this button to sign in.</string>
-	<string name="tutorial_registrarse3">Fill in your details here.</string>
-	
-	<string name="tutorial_ometre">Press this button to enter without login.</string>
-	<string name="tutorial_login">Press this button to login.</string>
-	
-	<string name="tutorial_main_search">Write here what you want to search.</string>
-	<string name="tutorial_main_settings">Press here to change your search settings.</string>
-	<string name="tutorial_main_museus">The search results will be displayed in here.</string>
-	<string name="tutorial_main_camera">Do this move to access QR scanning and image recognition mode</string>
-	
-	<string name="tutorial_qr">Touch the screen to start scanning QR codes.</string>
-	
-	<string name="tutorial_llistaObres">Touch the results to see its information.</string>
-	
-	<string name="tutorial_info">Touch twice a image to zoom it.</string>
-	<string name="tutorial_play">Press this button to start or pause the audiodescription</string>
-	<string name="tutorial_stop">Press this button to stop playback.</string>
-	<string name="tutorial_opinions">Press this button to show or hide the comments.</string>
-	<string name="tutorial_informacio">Press this button to show or hide the rating.</string>
+    <string name="fragment_info_laborables">Weekdays</string>
+    <string name="fragment_info_festius">Holidays</string>
+    <string name="fragment_info_and">and</string>
+    <string name="fragment_info_tts_error">Failed to initialize voice service.</string>
+    <string name="fragment_info_tts_language">No audio description available for device language</string>
+    <string name="fragment_info_editar_valoracio">Edit rating</string>
+    <string name="fragment_info_click_valorar">Touch stars to rate the painting.</string>
+    <string name="fragment_info_valorar">Rate</string>
+    <string name="fragment_info_comentar">Write here your comment</string>
+    <string name="fragment_info_carregant">Loading&#8230;</string>
+    <string-array name="fragment_info_valoracions">
+        <item>Bad</item>
+        <item>Poor</item>
+        <item>Normal</item>
+        <item>Good</item>
+        <item>Excellent</item>
+    </string-array>
+
+    <string-array name="maps_modes">
+        <item>Normal</item>
+        <item>Hybrid</item>
+        <item>Satellite</item>
+        <item>Terrain</item>
+        <item>None</item>
+    </string-array>
+
+    <string-array name="app_language">
+        <item>Catalan</item>
+        <item>Spanish</item>
+        <item>Chinese</item>
+        <item>English</item>
+    </string-array>
+
+    <string name="tutorial">Tutorial</string>
+    <string name="tutorial_registrarse">Press this button to start registering.</string>
+    <string name="tutorial_registrarse2">Press this button to sign in.</string>
+    <string name="tutorial_registrarse3">Fill in your details here.</string>
+
+    <string name="tutorial_ometre">Press this button to enter without login.</string>
+    <string name="tutorial_login">Press this button to login.</string>
+
+    <string name="tutorial_main_search">Write here what you want to search.</string>
+    <string name="tutorial_main_settings">Press here to change your search settings.</string>
+    <string name="tutorial_main_museus">The search results will be displayed in here.</string>
+    <string name="tutorial_main_camera">Do this move to access QR scanning and image recognition mode</string>
+
+    <string name="tutorial_qr">Touch the screen to start scanning QR codes.</string>
+
+    <string name="tutorial_llistaObres">Touch the results to see its information.</string>
+
+    <string name="tutorial_info">Touch twice a image to zoom it.</string>
+    <string name="tutorial_play">Press this button to start or pause the audiodescription</string>
+    <string name="tutorial_stop">Press this button to stop playback.</string>
+    <string name="tutorial_opinions">Press this button to show or hide the comments.</string>
+    <string name="tutorial_informacio">Press this button to show or hide the rating.</string>
 	<string name="tutorial_zoom">Touch twice a image to zoom it. After that, you can move it.
 	    \nPress "Back" to quit zoom.</string>
-	
-	<string name="toast_db_updated">Database updated</string>
-	<string name="toast_db_update_error">Update error</string>
-	<string name="toast_invalid_qr">Invalid QR code.</string>
-	<string name="toast_wrong_qr">Invalud URL! Chech you have the latest DB version.</string>
-	<string name="toast_tts_error">You need an extern SD card</string>	
 
-	<string name="dialog_ok">Ok</string>	    
-	<string name="dialog_si">Yes</string>
-	<string name="dialog_no">No</string>
-	<string name="dialog_acceptar">Accept</string>
-	<string name="dialog_cancelar">Cancel</string>
-		    
-	<string name="horari">Time Table: </string>
-	<string name="direccio">Address:  </string>
-	<string name="museu">Museum:  </string>
-	<string name="autor">Author:  </string>
-	
-	<string name="API_no_network">No connexion available</string>
-	<string name="API_loading_db">Checking database version&#8230;</string>
-	<string name="API_downloading_db">Downloading new database version</string>
-	<string name="API_error_connexio">Unable to connect to the server.</string>
-	<string name="API_error_timeout">Timeout error while getting data.</string>
-	<string name="API_error_json">Unexpected answer</string>
-	<string name="API_update_error">Update error</string>
-	<string name="API_sending_image">Sending image to server</string>
-	
-	<string name="RECON_error_bitmap">Screenshot could not be made</string>
-	<string name="RECON_error_unknown">Artwork could not be recognized</string>
-	
-	<string name="service_title">eMuseum</string>
-	<string name="service_description">eMuseum service</string>
-	<string name="service_downloaded">downloaded</string>
+    <string name="toast_db_updated">Database updated</string>
+    <string name="toast_db_update_error">Update error</string>
+    <string name="toast_invalid_qr">Invalid QR code.</string>
+    <string name="toast_wrong_qr">Invalud URL! Chech you have the latest DB version.</string>
+    <string name="toast_tts_error">You need an extern SD card</string>
+
+    <string name="dialog_ok">Ok</string>
+    <string name="dialog_si">Yes</string>
+    <string name="dialog_no">No</string>
+    <string name="dialog_acceptar">Accept</string>
+    <string name="dialog_cancelar">Cancel</string>
+
+    <string name="horari">Time Table: </string>
+    <string name="direccio">Address:  </string>
+    <string name="museu">Museum:  </string>
+    <string name="autor">Author:  </string>
+
+    <string name="API_no_network">No connexion available</string>
+    <string name="API_loading_db">Checking database version&#8230;</string>
+    <string name="API_downloading_db">Downloading new database version</string>
+    <string name="API_error_connexio">Unable to connect to the server.</string>
+    <string name="API_error_timeout">Timeout error while getting data.</string>
+    <string name="API_error_json">Unexpected answer</string>
+    <string name="API_update_error">Update error</string>
+    <string name="API_sending_image">Sending image to server</string>
+
+    <string name="RECON_error_bitmap">Screenshot could not be made</string>
+    <string name="RECON_error_unknown">Artwork could not be recognized</string>
+
+    <string name="service_title">eMuseum</string>
+    <string name="service_description">eMuseum service</string>
+    <string name="service_downloaded">downloaded</string>
 </resources>
 

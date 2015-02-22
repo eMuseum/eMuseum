@@ -10,7 +10,7 @@
     android:background="@drawable/view_search_menu_background"
     android:clickable="true"
     android:orientation="vertical"
-    android:padding="15dp" >
+    android:padding="15dp">
 
     <CheckBox
         android:id="@+id/view_search_per_museu"

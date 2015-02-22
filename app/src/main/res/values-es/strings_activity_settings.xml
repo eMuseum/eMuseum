@@ -20,19 +20,19 @@
     <!-- Example settings for Notifications -->
     <string name="pref_header_notifications">Notificaciones</string>
     <string name="pref_title_new_message_notifications">Notificar nuevo wifi</string>
-	
-   <string-array name="pref_language">
-	    <item name="Català">Catalan</item>
-	    <item name="Castellà">Castellano</item>
-	    <item name="Xinès">Chino</item>
-	    <item name="Anglès">Inglés</item>
-	</string-array>
-	
+
+    <string-array name="pref_language">
+        <item name="Català">Catalan</item>
+        <item name="Castellà">Castellano</item>
+        <item name="Xinès">Chino</item>
+        <item name="Anglès">Inglés</item>
+    </string-array>
+
     <string-array name="pref_language_values">
-	    <item name="Català">ca</item>
-	    <item name="Castellà">es</item>
-	    <item name="Xinès">zh</item>
-	    <item name="Anglès">en</item>
-	</string-array>
-    
+        <item name="Català">ca</item>
+        <item name="Castellà">es</item>
+        <item name="Xinès">zh</item>
+        <item name="Anglès">en</item>
+    </string-array>
+
 </resources>

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="listaPreguntas" >
+    <string-array name="listaPreguntas">
         <item>¿Cómo iniciar una sesión?</item>
         <item>¿Cómo cerrar una sesión?</item>
-	    <item>¿Cómo comentar una obra?</item>
-	    <item>¿Cómo hacer la búsqueda?</item>
-	    <item>¿Cómo escanear QR?</item>
-	    <item>Utilidad de la cámara</item>
-	    <item>¿Cómo configurar las búsquedas?</item>
-	    <item>¿Cómo ordenar los resultados?</item>
-	    <item>¿Cómo reproducir o pausar audiodescripción?</item>
+        <item>¿Cómo comentar una obra?</item>
+        <item>¿Cómo hacer la búsqueda?</item>
+        <item>¿Cómo escanear QR?</item>
+        <item>Utilidad de la cámara</item>
+        <item>¿Cómo configurar las búsquedas?</item>
+        <item>¿Cómo ordenar los resultados?</item>
+        <item>¿Cómo reproducir o pausar audiodescripción?</item>
     </string-array>
-    
+
     <string-array name="listaRespuestas">
         
         <item>Si estas en menú de inicio entra tu nombre de usuario y contraseña y pulsa el botón "Entrar".
@@ -34,7 +34,7 @@
              nos aparece en la parte derecha superior de la pantalla y nos aparecerá una ventana donde hemos de marca la pocion Per Obra.
              Una vez hecho esto podemos escribir el nombre de la obra que queremos buscar.Solamente se muestra el resultado si la obra esta
              en los bases de datos de la aplicación.</item>
-            
+
         <item>Desliza hacia derecha desde la pantalla de la búsqueda para entrar a la pantalla de escaneo de QR.</item>
         
         
@@ -47,8 +47,8 @@
              
         <item>Despliega el menú de configuración del filtro de búsqueda y abajo de todo tenemos un campo "Ordenar por" donde si lo clickeamos nos muestra
             las diferentes formas de ordenar los resulta </item>
-            
+
         <item>Para pausar o reproducir audiodescripción simplemente hemos de pulsar el botón de reproducir.</item>
-        
+
     </string-array>
 </resources>

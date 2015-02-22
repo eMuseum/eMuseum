@@ -3,23 +3,23 @@
     android:id="@+id/RelativeLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SplashActivity" >
+    tools:context=".SplashActivity">
 
     <LinearLayout
         android:id="@+id/LinearLayout2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/background"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <FrameLayout
             android:id="@+id/login_frame"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -27,7 +27,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginBottom="50dp"
                     android:layout_marginTop="50dp"
-                    android:orientation="vertical" >
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/textView1"
@@ -55,7 +55,7 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
                 <LinearLayout
                     android:id="@+id/login_layout"
@@ -66,11 +66,11 @@
                     android:background="@drawable/login_frame"
                     android:orientation="vertical"
                     android:padding="15dp"
-                    android:visibility="gone" >
+                    android:visibility="gone">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" >
+                        android:layout_height="wrap_content">
 
                         <EditText
                             android:id="@+id/login_username"
@@ -82,7 +82,7 @@
                             android:ems="10"
                             android:gravity="center_horizontal"
                             android:hint="@string/splash_login_usuari"
-                            android:inputType="text" >
+                            android:inputType="text">
 
                             <requestFocus />
                         </EditText>
@@ -90,7 +90,7 @@
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" >
+                        android:layout_height="wrap_content">
 
                         <EditText
                             android:id="@+id/login_password"
@@ -107,7 +107,7 @@
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" >
+                        android:layout_height="wrap_content">
 
                         <TextView
                             android:id="@+id/textView_recuperarPass"
@@ -122,7 +122,7 @@
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" >
+                        android:layout_height="wrap_content">
 
                         <Button
                             android:id="@+id/loginButton"
@@ -150,7 +150,7 @@
                     android:layout_centerVertical="true"
                     android:background="@drawable/login_frame"
                     android:orientation="vertical"
-                    android:padding="15dp" >
+                    android:padding="15dp">
 
                     <ProgressBar
                         android:id="@+id/splash_loading"
@@ -170,7 +170,7 @@
         android:layout_alignParentLeft="true"
         android:background="@drawable/login_register_bar"
         android:orientation="horizontal"
-        android:weightSum="1" >
+        android:weightSum="1">
 
         <Button
             android:id="@+id/splash_registrarse"

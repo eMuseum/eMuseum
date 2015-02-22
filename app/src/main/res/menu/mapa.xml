@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android" >
-    
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
     <item
         android:id="@+id/action_iniciar_sessio"
         android:orderInCategory="100"
         android:showAsAction="never"
-        android:title="@string/action_iniciar_sessio"/>
-    
+        android:title="@string/action_iniciar_sessio" />
+
     <item
         android:id="@+id/action_tancar_sessio"
         android:orderInCategory="100"
         android:showAsAction="never"
-        android:title="@string/action_tancar_sessio"/>    
-    
+        android:title="@string/action_tancar_sessio" />
+
     <item
         android:id="@+id/action_ajuda"
         android:orderInCategory="100"
-        android:showAsAction="never" 
-        android:title="@string/action_ajuda"/>
-    
+        android:showAsAction="never"
+        android:title="@string/action_ajuda" />
+
     <item
         android:id="@+id/view_setting"
         android:orderInCategory="100"
         android:showAsAction="never"
-        android:title="@string/view_settings"/>
+        android:title="@string/view_settings" />
 
     <item
         android:id="@+id/action_canviar_idioma"
         android:orderInCategory="100"
         android:showAsAction="never"
-        android:title="@string/action_canviar_idioma"/>  
+        android:title="@string/action_canviar_idioma" />
 </menu>

@@ -4,16 +4,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="top"
-    tools:context=".InfoActivity" >
+    tools:context=".InfoActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/llistaObresActivity_title"
@@ -35,16 +35,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/grid_element"
-            android:fillViewport="true" >
+            android:fillViewport="true">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
+                    android:layout_height="wrap_content">
 
                     <ImageView
                         android:id="@+id/imageView_imatge"
@@ -58,16 +58,16 @@
                 <RelativeLayout
                     android:id="@+id/layout_repro"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
+                    android:layout_height="wrap_content">
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true" >
+                        android:layout_centerHorizontal="true">
 
                         <LinearLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" >
+                            android:layout_height="wrap_content">
 
                             <ImageView
                                 android:id="@+id/imageView_play"
@@ -91,11 +91,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:orientation="vertical" >
+                    android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" >
+                        android:layout_height="wrap_content">
 
                         <ImageView
                             android:id="@+id/imageView2"
@@ -116,7 +116,7 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" >
+                        android:layout_height="wrap_content">
 
                         <ImageView
                             android:id="@+id/imageView3"
@@ -142,11 +142,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:orientation="vertical" >
+                    android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" >
+                        android:layout_height="wrap_content">
 
                         <ImageView
                             android:id="@+id/imageView6"
@@ -168,7 +168,7 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" >
+                        android:layout_height="wrap_content">
 
                         <ImageView
                             android:id="@+id/imageView5"
@@ -189,7 +189,7 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" >
+                        android:layout_height="wrap_content">
 
                         <ImageView
                             android:id="@+id/image_horari"
@@ -238,15 +238,15 @@
                     android:id="@+id/contenidor_informacio"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical" >
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/text_informacio"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-	                    android:layout_marginLeft="20dp"
-	                    android:layout_marginRight="20dp"
-	                    android:layout_marginBottom="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginBottom="20dp"
                         android:textAppearance="?android:attr/textAppearance" />
                 </LinearLayout>
 
@@ -272,11 +272,11 @@
                     android:id="@+id/contenidor_opinions"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical" >
+                    android:orientation="vertical">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" >
+                        android:layout_height="wrap_content">
 
                         <RatingBar
                             android:id="@+id/valoracion_ratingBar"
@@ -287,14 +287,14 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" >
+                        android:layout_height="wrap_content">
 
                         <EditText
                             android:id="@+id/editText_Comentaris"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_weight="3"
-                            android:ems="10" >
+                            android:ems="10">
 
                             <requestFocus />
                         </EditText>
