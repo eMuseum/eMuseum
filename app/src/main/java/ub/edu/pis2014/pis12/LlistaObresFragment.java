@@ -34,14 +34,11 @@ public class LlistaObresFragment extends Fragment {
 
     //Per pasar a la nova activity en el intent
     public final static int ACTIVITY_CREATE = 1;
-
+    private static boolean isAutor = false;
     //inicialitza la variable museu
     private int id_element;
-
     // Tipus d'element del que mostrem la llista
     private TIPUS_ELEMENT tipus;
-
-    private static boolean isAutor = false;
 
     /**
      * Aquest metode permet crear un nou fragment i passar-l'hi parametres
@@ -74,6 +71,10 @@ public class LlistaObresFragment extends Fragment {
         return fragment;
     }
 
+    public static boolean getTipus() {
+        return isAutor;
+    }
+
     /**
      * Al crear unicament inflem el container amb el layout
      */
@@ -96,11 +97,6 @@ public class LlistaObresFragment extends Fragment {
             tipus = (TIPUS_ELEMENT) extras.getSerializable("tipus");
         }
 
-        // Obtenim i declarem el gridView
-        final GridView gridview = (GridView) view.findViewById(R.id.llistaObresActivity_gridView);
-        final GridAdapterElements adapter = new GridAdapterElements(gridview, getActivity(), view.getContext(), false);
-        adapter.setObres(true);
-
         // Element d'on estem mostrant la llista d'Obres i afegeix els elements a l'adapter
         final Element element;
 
@@ -108,13 +104,13 @@ public class LlistaObresFragment extends Fragment {
             case TIPUS_MUSEU:
                 element = (Museu) Dades.getMuseu(id_element);
                 isAutor = false;
-                adapter.setWhere("mid=" + id_element);
+                //adapter.setWhere("mid=" + id_element);
                 break;
 
             case TIPUS_AUTOR:
                 element = (Autor) Dades.getAutor(id_element);
                 isAutor = true;
-                adapter.setWhere("aid=" + id_element);
+                //adapter.setWhere("aid=" + id_element);
                 break;
 
             default:
@@ -123,7 +119,9 @@ public class LlistaObresFragment extends Fragment {
                 break;
         }
 
-        adapter.populate(true);
+        // Obtenim i declarem el gridView
+        final GridView gridview = (GridView) view.findViewById(R.id.llistaObresActivity_gridView);
+        final GridAdapterElements adapter = new GridAdapterElements(gridview, getActivity(), element);
 
         // Establim el titol
         final TextView titol = (TextView) view.findViewById(R.id.llistaObresActivity_title);
@@ -159,7 +157,7 @@ public class LlistaObresFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
                 /*
-				 * Intent per pasar a InfoObraActivity passant les dades: 
+                 * Intent per pasar a InfoObraActivity passant les dades:
 				 * 	L'ID del museu,l'obra escollida i si es una obra o un museu
 				 */
                 Obra obra = (Obra) adapter.getItem(position);
@@ -204,9 +202,5 @@ public class LlistaObresFragment extends Fragment {
         super.onPause();
 
         ElementImageManager.cancelDownloads();
-    }
-
-    public static boolean getTipus() {
-        return isAutor;
     }
 }

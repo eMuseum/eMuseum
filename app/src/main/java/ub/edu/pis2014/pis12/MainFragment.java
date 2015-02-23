@@ -23,7 +23,6 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.GridView;
-import android.widget.RelativeLayout;
 import android.widget.SearchView;
 import android.widget.Spinner;
 
@@ -45,8 +44,6 @@ import ub.edu.pis2014.pis12.utils.AlphaToggle;
 import ub.edu.pis2014.pis12.utils.ElementImageManager;
 import ub.edu.pis2014.pis12.utils.MapUtil;
 import ub.edu.pis2014.pis12.utils.RotateToggle;
-import ub.edu.pis2014.pis12.utils.ScrollLoader;
-import ub.edu.pis2014.pis12.utils.ScrollLoaderListener;
 import ub.edu.pis2014.pis12.utils.Utils;
 
 /**
@@ -55,20 +52,17 @@ import ub.edu.pis2014.pis12.utils.Utils;
  */
 public class MainFragment extends Fragment {
     public final static int ACTIVITY_CREATE = 1;
-
-    // Variables utilitzades per les animacions
-    AlphaToggle alphaToggle = null;
-    RotateToggle rotateToggle = null;
-
     private static GridAdapterElements adapter = null;
     private static boolean museuChecked = true;
     private static boolean obraChecked = false;
     private static boolean autorChecked = false;
     private static int posicioOrdre = 0;
-    private SearchView searchView;
-
     // Inentar actualitzar la DB un sol cop
     private static boolean comprobaDB = true;
+    // Variables utilitzades per les animacions
+    AlphaToggle alphaToggle = null;
+    RotateToggle rotateToggle = null;
+    private SearchView searchView;
 
     public static void clearStatic() {
         adapter = null;
@@ -115,11 +109,11 @@ public class MainFragment extends Fragment {
 
         // Declara l'adapter del grid
         if (adapter == null) {
-            adapter = new GridAdapterElements(gridView, getActivity(), context, true);
+            adapter = new GridAdapterElements(gridView, getActivity());
             adapter.setMuseus(true);
 
             //Afegeix els elements a l'adapter i els ordena Alfabeticament
-            adapter.populate(false);
+            //   adapter.populate(false);
         } else {
             // Inidiquem la activity
             ElementImageManager.setActivity(getActivity());
@@ -134,13 +128,13 @@ public class MainFragment extends Fragment {
 
         // Coloca l'adapter al grid
         gridView.setAdapter(adapter);
-
+/*
         // Views utilitzades per indicar a l'usuari com carregar mes elements
         final RelativeLayout loadMore = (RelativeLayout) view.findViewById(R.id.load_more_layout);
         final View loadMoreImg = view.findViewById(R.id.load_more_img);
         final View upForMore = view.findViewById(R.id.txt_up_more);
         final View upClick = view.findViewById(R.id.txt_up_click);
-
+/*
         // Classe per gestionar l'scroll i la carrega de nous elements
         new ScrollLoader(gridView, new ScrollLoaderListener() {
 
@@ -198,6 +192,8 @@ public class MainFragment extends Fragment {
             }
         });
 
+        */
+
         // Quan clickes a un element del grid
         gridView.setOnItemClickListener(new OnItemClickListener() {
 
@@ -214,13 +210,12 @@ public class MainFragment extends Fragment {
                     Intent i = null;
                     if (element instanceof Obra) {
                         i = new Intent(getActivity(), InfoActivity.class);
-                        i.putExtra("id", element.getId());
-                        i.putExtra("tipus", TIPUS_ELEMENT.getFromElement(element));
                     } else {
                         i = new Intent(getActivity(), LlistaObresActivity.class);
-                        i.putExtra("id", element.getId());
-                        i.putExtra("tipus", TIPUS_ELEMENT.getFromElement(element));
+
                     }
+                    i.putExtra("id", element.getId());
+                    i.putExtra("tipus", TIPUS_ELEMENT.getFromElement(element));
                     startActivityForResult(i, MainFragment.ACTIVITY_CREATE);
                 } else {
                     // Si estem en un altre mode em de crear la transicio de fragments
@@ -289,7 +284,6 @@ public class MainFragment extends Fragment {
             public void onItemSelected(AdapterView<?> parent, View view,
                                        int position, long id) {
                 posicioOrdre = position;
-
                 adapter.ordenar(TIPUS_ORDENACIO.values()[posicioOrdre]);
             }
 
@@ -385,8 +379,7 @@ public class MainFragment extends Fragment {
 
     public void searchElementsWithString(String text) {
         adapter.setWhere("nom like '%" + text + "%'");
-        adapter.populate(true);
-        System.out.println(text);
+        adapter.reloadData();
     }
 
     @Override
@@ -404,6 +397,4 @@ public class MainFragment extends Fragment {
         ElementImageManager.cancelDownloads();
         MapUtil.stopListener(getActivity());
     }
-
-
 }

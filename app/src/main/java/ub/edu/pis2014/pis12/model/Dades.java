@@ -28,14 +28,13 @@ import ub.edu.pis2014.pis12.utils.EMuseumService;
  * @author Guillem
  */
 public class Dades {
+    private static Dades _instance = null;
     // Base de dades
     private SQLiteDatabase db = null;
     private Context context = null;
     private DBDownConnection dbDownConnection = null;
     private ArrayList<Comentari> comentaris = new ArrayList<Comentari>();
     private float lastRating = 0;
-
-    private static Dades _instance = null;
 
     private Dades() {
     }
@@ -236,6 +235,80 @@ public class Dades {
                     null,                                // HAVING
                     order,                                // ORDER BY
                     f + "," + t                            // LIMIT
+            );
+
+            if (c != null) {
+                while (c.moveToNext()) {
+                    int id = c.getInt(c.getColumnIndex("id"));
+                    int mid = c.getInt(c.getColumnIndex("mid"));
+                    int aid = c.getInt(c.getColumnIndex("aid"));
+                    String nom = c.getString(c.getColumnIndex("nom"));
+                    String descripcio = c.getString(c.getColumnIndex("descripcio"));
+                    String imatge = c.getString(c.getColumnIndex("imatge"));
+
+                    obres.add(new Obra(id, mid, aid, nom, descripcio, imatge));
+                }
+            }
+        } catch (SQLException e) {
+        } finally {
+            if (c != null)
+                c.close();
+        }
+
+        return obres;
+    }
+
+    public static ArrayList<Element> getObres(Autor autor) {
+        ArrayList<Element> obres = new ArrayList<Element>();
+        String where = "aid=" + autor.identificador;
+
+        Cursor c = null;
+        try {
+            c = instance().db.query("e_obres",            // TABLE
+                    new String[]{"id", "mid", "aid", "nom", "descripcio", "imatge"}, // COLUMNS
+                    where,                                // WHERE
+                    null,                                // WHERE ARGS
+                    null,                                // GROUP BY
+                    null,                                // HAVING
+                    null,                                // ORDER BY
+                    null                            // LIMIT
+            );
+
+            if (c != null) {
+                while (c.moveToNext()) {
+                    int id = c.getInt(c.getColumnIndex("id"));
+                    int mid = c.getInt(c.getColumnIndex("mid"));
+                    int aid = c.getInt(c.getColumnIndex("aid"));
+                    String nom = c.getString(c.getColumnIndex("nom"));
+                    String descripcio = c.getString(c.getColumnIndex("descripcio"));
+                    String imatge = c.getString(c.getColumnIndex("imatge"));
+
+                    obres.add(new Obra(id, mid, aid, nom, descripcio, imatge));
+                }
+            }
+        } catch (SQLException e) {
+        } finally {
+            if (c != null)
+                c.close();
+        }
+
+        return obres;
+    }
+
+    public static ArrayList<Element> getObres(Museu museu) {
+        ArrayList<Element> obres = new ArrayList<Element>();
+        String where = "mid=" + museu.identificador;
+
+        Cursor c = null;
+        try {
+            c = instance().db.query("e_obres",            // TABLE
+                    new String[]{"id", "mid", "aid", "nom", "descripcio", "imatge"}, // COLUMNS
+                    where,                                // WHERE
+                    null,                                // WHERE ARGS
+                    null,                                // GROUP BY
+                    null,                                // HAVING
+                    null,                                // ORDER BY
+                    null                            // LIMIT
             );
 
             if (c != null) {

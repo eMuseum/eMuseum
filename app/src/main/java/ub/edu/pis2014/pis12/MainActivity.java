@@ -45,14 +45,12 @@ import ub.edu.pis2014.pis12.utils.WifiScanConnection;
  */
 @SuppressLint("ResourceAsColor")
 public class MainActivity extends FragmentActivity {
+    public static final int ACTIVITY_CREATE = 1;
     private static final int MENU_LOGIN = Menu.FIRST;
     private static final int MENU_UPDATE = Menu.FIRST + 1;
     private static final int MENU_HELP = Menu.FIRST + 2;
     private static final int MENU_SETTINGS = Menu.FIRST + 3;
     private static final int MENU_LANGUAGE = Menu.FIRST + 4;
-
-    public static final int ACTIVITY_CREATE = 1;
-
     public static boolean mostrantObra = false;
     private static boolean appInicialitzada = false;
     private static boolean preventDestroy = false;
@@ -62,72 +60,6 @@ public class MainActivity extends FragmentActivity {
     private ViewPager pager;
     private ScreenSlidePagerAdapter pagerAdapter;
     private int tipoIdioma;
-
-    /**
-     * Constructor de la classe
-     * <p/>
-     * Inicialitza i posa valors per defecte a alguns Widgets de l'Activity
-     */
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-
-        super.onCreate(savedInstanceState);
-
-        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
-        String idioma = settings.getString("Language_Code", getResources().getConfiguration().locale.toString().substring(0, 2));
-        if (idioma != getResources().getConfiguration().locale.toString().substring(0, 2)) {
-            Configuration config = new Configuration();
-            Locale locale = new Locale(idioma);
-            Locale.setDefault(locale);
-            config.locale = locale;
-            getApplicationContext().getResources().updateConfiguration(config, null);
-        }
-
-		/*
-		 * Si estem en mode normal i no en una tablet i en landscape,
-		 * mostrem el xml normal, d'altre forma mostrem el xml per tablet,
-		 * que permet tenir m�s d'un fragment per activity
-		 */
-        int resourceID = R.layout.activity_main;
-        if (Utils.isExpandedMode(this)) {
-            resourceID = R.layout.activity_main_tablet;
-        }
-
-        setContentView(resourceID);
-
-        // Inicialitzem les dades
-        if (!appInicialitzada) {
-            appInicialitzada = true;
-            Context context = getApplicationContext();
-
-            Dades.initialize(context);
-
-            // A menys que l'usuari ho hagi desactivat
-            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-            if (preferences.getBoolean("autoconnect_wifi", true)) {
-                // Iniciem el servei per estar pendent de canvis en el wifi
-                WifiScanConnection connection = new WifiScanConnection(context) {
-
-                    @Override
-                    protected void onConnected() {
-                        // Indiquem que comenci a escanejar
-                        service.startWifiScanning();
-                    }
-                };
-
-                // Creem el servei a menys que ja estigui creat
-                Intent i = new Intent(this, EMuseumService.class);
-                context.startService(i);
-
-                // Intentem lligar-nos al servei
-                context.bindService(i, connection, Context.BIND_AUTO_CREATE);
-            }
-        }
-
-        fillActivity(false);
-
-        tipoIdioma = 0;
-    }
 
     /**
      * Permet buscar actualitzacions de la base de dades de museus, autors i obres mitjan�ant la
@@ -187,6 +119,72 @@ public class MainActivity extends FragmentActivity {
                 }
             }
         });
+    }
+
+    /**
+     * Constructor de la classe
+     * <p/>
+     * Inicialitza i posa valors per defecte a alguns Widgets de l'Activity
+     */
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+
+        super.onCreate(savedInstanceState);
+
+        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
+        String idioma = settings.getString("Language_Code", getResources().getConfiguration().locale.toString().substring(0, 2));
+        if (idioma != getResources().getConfiguration().locale.toString().substring(0, 2)) {
+            Configuration config = new Configuration();
+            Locale locale = new Locale(idioma);
+            Locale.setDefault(locale);
+            config.locale = locale;
+            getApplicationContext().getResources().updateConfiguration(config, null);
+        }
+
+		/*
+         * Si estem en mode normal i no en una tablet i en landscape,
+		 * mostrem el xml normal, d'altre forma mostrem el xml per tablet,
+		 * que permet tenir m�s d'un fragment per activity
+		 */
+        int resourceID = R.layout.activity_main;
+        if (Utils.isExpandedMode(this)) {
+            resourceID = R.layout.activity_main_tablet;
+        }
+
+        setContentView(resourceID);
+
+        // Inicialitzem les dades
+        if (!appInicialitzada) {
+            appInicialitzada = true;
+            Context context = getApplicationContext();
+
+            Dades.initialize(context);
+
+            // A menys que l'usuari ho hagi desactivat
+            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+            if (preferences.getBoolean("autoconnect_wifi", true)) {
+                // Iniciem el servei per estar pendent de canvis en el wifi
+                WifiScanConnection connection = new WifiScanConnection(context) {
+
+                    @Override
+                    protected void onConnected() {
+                        // Indiquem que comenci a escanejar
+                        service.startWifiScanning();
+                    }
+                };
+
+                // Creem el servei a menys que ja estigui creat
+                Intent i = new Intent(this, EMuseumService.class);
+                context.startService(i);
+
+                // Intentem lligar-nos al servei
+                context.bindService(i, connection, Context.BIND_AUTO_CREATE);
+            }
+        }
+
+        fillActivity(false);
+
+        tipoIdioma = 0;
     }
 
     @Override
@@ -473,7 +471,12 @@ public class MainActivity extends FragmentActivity {
         }
 
         // Afegim els elements al ViewPager
-        pagerAdapter.addItem(new CameraFragment());
+        if (Utils.checkCameraHardware(getApplicationContext())) {
+            pagerAdapter.addItem(new CameraFragment());
+        } else {
+            System.out.println("No camera available");
+        }
+
         if (!Utils.isExpandedMode(this)) {
             // Si no estem en mode tablet, el del mig es la llista de museus
             pagerAdapter.addItem(new MainFragment());

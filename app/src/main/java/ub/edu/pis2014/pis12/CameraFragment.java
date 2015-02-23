@@ -43,6 +43,7 @@ import ub.edu.pis2014.pis12.utils.Utils;
  * Mostra la pantalla de QR
  */
 public class CameraFragment extends Fragment implements ZBarScannerView.ResultHandler {
+    public CAMERA_MODE mode = CAMERA_MODE.QR_MODE;
     private Context context = null;
     private FrameLayout framePreview = null;
     private ZBarScannerView mScannerView;
@@ -50,13 +51,7 @@ public class CameraFragment extends Fragment implements ZBarScannerView.ResultHa
     private View loadingFade = null;
     private TextView loadingText = null;
 
-    public enum CAMERA_MODE {
-        QR_MODE,
-        RECON_MODE
-    }
-
     ;
-    public CAMERA_MODE mode = CAMERA_MODE.QR_MODE;
     private float maxX = 0;
     private PositionToggle animation = null;
 
@@ -65,6 +60,7 @@ public class CameraFragment extends Fragment implements ZBarScannerView.ResultHa
                              Bundle savedInstanceState) {
 
         context = getActivity();
+
         mScannerView = new ZBarScannerView(context);    // Programmatically initialize the scanner view
 
         // Inflate the layout for this fragment
@@ -312,5 +308,10 @@ public class CameraFragment extends Fragment implements ZBarScannerView.ResultHa
             startActivityForResult(i,
                     LlistaObresFragment.ACTIVITY_CREATE);
         }
+    }
+
+    public enum CAMERA_MODE {
+        QR_MODE,
+        RECON_MODE
     }
 }

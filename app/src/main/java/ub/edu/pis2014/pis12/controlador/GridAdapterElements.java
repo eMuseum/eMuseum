@@ -29,175 +29,89 @@ import ub.edu.pis2014.pis12.model.Museu;
 import ub.edu.pis2014.pis12.model.Obra;
 import ub.edu.pis2014.pis12.model.TIPUS_ELEMENT;
 import ub.edu.pis2014.pis12.utils.AlphaBoth;
-import ub.edu.pis2014.pis12.utils.ElementImageManager;
 import ub.edu.pis2014.pis12.utils.MapUtil;
 import ub.edu.pis2014.pis12.utils.OnMapUpdate;
 import ub.edu.pis2014.pis12.utils.Utils;
 
 public class GridAdapterElements extends BaseAdapter {
+    TIPUS_ORDENACIO ordenacio = null;
     //Activity del gridAdapter
     private FragmentActivity activity;
     private Context context;
     private GridView grid;
-
     // Llista d'elements
     private List<Element> items = new ArrayList<Element>();
-
     // Utilitzat durant el proccs Item <-> View
     private LayoutInflater inflater;
-
-    public enum TIPUS_ORDENACIO {
-        TIPUS_PER_TIPUS,
-        TIPUS_ALFABETIC,
-        TIPUS_ALFABETIC_INVERS,
-        TIPUS_VALORACIONS,
-        TIPUS_VALORACIONS_INVERS
-    }
-
     ;
-
     // Tipus d'elements que mostrem
     private boolean museus = false;
     private boolean obres = false;
     private boolean autors = false;
 
-    // Variables per indicar a la DB per on buscar
-    private int startMuseus = 0;
-    private int startObres = 0;
-    private int startAutors = 0;
-    private int startMultiple = 0;
-    private final static int LIMIT = 25;
-    private int limit = LIMIT;
-
     // Limitadors de cerca
     private String searchString = "";
-    TIPUS_ORDENACIO ordenacio = null;
-
 
     /**
-     * Constructor de la classe, inicialitza els elements (items)
+     * Constructor de la classe, inicialitza els elements sense cap autor/museu definit
      *
-     * @param context Activity que crea l'adaptador
+     * @param activity Activity que crea l'adaptador
+     * @param grid     gridView que conte aquesta classe
      */
-    public GridAdapterElements(GridView grid, FragmentActivity activity, Context context, boolean info) {
+    public GridAdapterElements(GridView grid, FragmentActivity activity) {
         this.grid = grid;
-        inflater = LayoutInflater.from(context);
+        this.context = activity.getApplicationContext();
+        this.inflater = LayoutInflater.from(context);
         this.activity = activity;
-        this.context = context;
-        this.startMuseus = 0;
-        this.startObres = 0;
-        this.startAutors = 0;
-        this.startMultiple = 0;
-
-        // Establim la activity en el descarregador
-        ElementImageManager.setActivity(activity);
     }
 
     /**
-     * Actualitza l'element a partir del qual retornem de la
-     * base de dades
+     * Constructor de la classe, inicialitza els elements amb autor/museu definit
      *
-     * @return Retorna true si es una ceca mixta i cal buidar el grid
+     * @param activity Activity que crea l'adaptador
+     * @param grid gridView que conte aquesta classe
      */
-    public boolean loadMore() {
-        // Intentem omplir amb mes elements
-        return populate(false);
-    }
+    public GridAdapterElements(GridView grid, FragmentActivity activity, Element element) {
+        this.grid = grid;
+        this.context = activity.getApplicationContext();
+        this.inflater = LayoutInflater.from(context);
+        this.activity = activity;
 
-    /**
-     * Afegeix elements a l'adapter segons les opciones preestablertes, tals com
-     * quins tipus afegir, parametres de cerca i des de quin element fer-ho
-     *
-     * @return Retorna true si s'afegeix algun element
-     */
-    public boolean populate(boolean cl) {
-        // Elements actuals i limit des del que afegir
-        int current = getCount();
-
-        if (cl) {
-            clear();
+        if (element instanceof Museu) {
+            items = Dades.getObres((Museu) element);
+        } else if (element instanceof Autor) {
+            items = Dades.getObres((Autor) element);
         }
-
-        // Afegim tots els elements
-        if (!isMultiSearch()) {
-            if (museus)
-                afegirMuseus();
-
-            if (obres)
-                afegirObres();
-
-            if (autors)
-                afegirAutors();
-        } else {
-            afegirCercaMultiple();
-        }
-
-        // Guardem si hi ha hagut canvis
-        boolean changed = current != getCount();
-        // Si hi ha hagut canvis o hem fer un clear
-        if (changed || cl) {
-            // Notifiquem
-            notifyDataSetChanged();
-            return changed;
-        }
-
-        return false;
-    }
-
-    /**
-     * Retorna true si estem fent una cerca de mes d'un tipus d'element
-     * a la vegada.
-     *
-     * @return Retorna true si es cerca multiple, false sino
-     */
-    private boolean isMultiSearch() {
-        return ((museus ? 1 : 0) + (obres ? 1 : 0) + (autors ? 1 : 0)) > 1;
     }
 
     /**
      * Indica si volem o no museus en la cerca
-     * Reinicia el punt per on els buquem i el limit a afegir
      *
      * @param state Per buscar true, sino false
-     */
+     **/
     public void setMuseus(boolean state) {
         museus = state;
-        startMuseus = startObres = startAutors = startMultiple = 0;
-        populate(true);
+        reloadData();
     }
 
     /**
      * Indica si volem o no obres en la cerca
-     * Reinicia el punt per on els buquem i el limit a afegir
      *
      * @param state Per buscar true, sino false
-     */
+     **/
     public void setObres(boolean state) {
         obres = state;
-        startMuseus = startObres = startAutors = startMultiple = 0;
-        populate(true);
+        reloadData();
     }
 
     /**
      * Indica si volem o no autors en la cerca
-     * Reinicia el punt per on els buquem i el limit a afegir
      *
      * @param state Per buscar true, sino false
-     */
+     **/
     public void setAutors(boolean state) {
         autors = state;
-        startMuseus = startObres = startAutors = startMultiple = 0;
-        populate(true);
-    }
-
-    /**
-     * Modifica la cadena Where (la limitacio de cerca en la DB)
-     *
-     * @param s Cadena de cerca
-     */
-    public void setWhere(String s) {
-        searchString = s;
-        startMuseus = startObres = startAutors = startMultiple = 0;
+        reloadData();
     }
 
     /**
@@ -212,71 +126,24 @@ public class GridAdapterElements extends BaseAdapter {
     }
 
     /**
-     * Afegeix elements buscant-los amb una query especial per tal
-     * de poder ordenar i afegir multiples a la vegada
+     * Modifica la cadena Where (la limitacio de cerca en la DB)
+     *
+     * @param s Cadena de cerca
      */
-    private void afegirCercaMultiple() {
+    public void setWhere(String s) {
+        searchString = s;
+    }
+
+    /**
+     * Reload data with parameters order, checked elements, a search text
+     */
+    public void reloadData() {
         String where = getWhere();
         String order = getOrdenacio();
 
-        ArrayList<Element> elements = Dades.cercaMixta(museus, autors, obres, where, order, startMultiple + "," + limit);
-        startMultiple += elements.size();
-        items.addAll(elements);
-    }
-
-    /**
-     * Afegeix museus, segons un limit i una cerca (que pot ser null, cap)
-     */
-    private void afegirMuseus() {
-        ArrayList<Museu> elements = Dades.getMuseus(startMuseus, limit, getWhere(), getOrdenacio());
-        startMuseus += elements.size();
-        items.addAll(elements);
-    }
-
-    /**
-     * Afegeix obres, segons un limit i una cerca (que pot ser null, cap)
-     */
-    private void afegirObres() {
-        ArrayList<Obra> elements = Dades.getObres(startObres, limit, getWhere(), getOrdenacio());
-        startObres += elements.size();
-        items.addAll(elements);
-    }
-
-    /**
-     * Afegeix autors, segons un limit i una cerca (que pot ser null, cap)
-     */
-    public void afegirAutors() {
-        ArrayList<Autor> elements = Dades.getAutors(startAutors, limit, getWhere(), getOrdenacio());
-        startAutors += elements.size();
-        items.addAll(elements);
-    }
-
-    /**
-     * Afegeix un item a l'adapter
-     *
-     * @param elem Element a afegir a la llista d'items
-     */
-    public void setItem(Element elem) {
-        items.add(elem);
-    }
-
-    /**
-     * @return Nombre d'elements en l'adaptador
-     */
-    @Override
-    public int getCount() {
-        return items.size();
-    }
-
-    /**
-     * Retorna un item en concret
-     *
-     * @param i Index de l'item
-     * @return Item demanat si existeix
-     */
-    @Override
-    public Object getItem(int i) {
-        return items.get(i);
+        ArrayList<Element> elements = Dades.cercaMixta(museus, autors, obres, where, order, null);
+        items = elements;
+        notifyDataSetChanged();
     }
 
     /**
@@ -287,33 +154,7 @@ public class GridAdapterElements extends BaseAdapter {
     public void ordenar(TIPUS_ORDENACIO ordenacio) {
         // Guardem el tipus d'ordenacio
         this.ordenacio = ordenacio;
-
-		/*
-		 * Per tal de reordenar hem de borrar i afegir exactament els elements que
-		 * tenim. Per tant, el que fem es posar el limit al nombre d'elements totals que
-		 * ara ja tenim (startX) i el comencament startX a 0.
-		 */
-        if (isMultiSearch()) {
-            limit = startMultiple;
-            startMultiple = 0;
-        } else {
-            if (museus) {
-                limit = startMuseus;
-                startMuseus = 0;
-            } else if (obres) {
-                limit = startObres;
-                startObres = 0;
-            } else if (autors) {
-                limit = startAutors;
-                startAutors = 0;
-            }
-        }
-
-        // Recarreguem tot i en ordre
-        populate(true);
-
-        // Restaurem el limit
-        limit = LIMIT;
+        reloadData();
     }
 
     /**
@@ -349,18 +190,24 @@ public class GridAdapterElements extends BaseAdapter {
     }
 
     /**
-     * Elimina tots els elements de l'adapter
+     * @return Nombre d'elements en l'adaptador
      */
-    private void clear() {
-        items.clear();
+    @Override
+    public int getCount() {
+        return items.size();
     }
 
     /**
-     * Retorna l'identificador d'un item
+     * Retorna un item en concret
      *
-     * @param i Posicio de l'item
-     * @return L'identificador si es troba
+     * @param i Index de l'item
+     * @return Item demanat si existeix
      */
+    @Override
+    public Object getItem(int i) {
+        return items.get(i);
+    }
+
     @Override
     public long getItemId(int i) {
         return items.get(i).getId();
@@ -375,9 +222,10 @@ public class GridAdapterElements extends BaseAdapter {
      * @param viewGroup
      * @return La vista/layout amb els camps omplerts
      */
+
     @Override
     public View getView(final int position, View view, final ViewGroup viewGroup) {
-// Declarem cada un dels elements que ens interessen
+        // Declarem cada un dels elements que ens interessen
         View v = view;
 
         // No tenim vista? Utitilitzem la vista per defecte
@@ -392,7 +240,6 @@ public class GridAdapterElements extends BaseAdapter {
         }
 
         // Obtenim l'Item, els widgets, i el ImageView de la info
-
         final Element element = items.get(position);
         final ImageView icono_info = (ImageView) v.getTag(R.id.griditem_info);
         final ImageView imatge = (ImageView) v.getTag(R.id.griditem_imatge);
@@ -400,11 +247,7 @@ public class GridAdapterElements extends BaseAdapter {
         final TextView text_subinfo = (TextView) v.getTag(R.id.griditem_subinfo);
         final View view_element = (View) v.getTag(R.id.view_element);
         final Resources resources = context.getResources();
-        if (element instanceof Museu)
-            icono_info.setImageDrawable(resources.getDrawable(R.mipmap.info_verde));
 
-        else if (element instanceof Autor)
-            icono_info.setImageDrawable(resources.getDrawable(R.mipmap.info_rosa));
 
         //Quan toques la ImageView de la info
         icono_info.setOnTouchListener(new View.OnTouchListener() {
@@ -441,12 +284,11 @@ public class GridAdapterElements extends BaseAdapter {
         //Quan clickes la ImageView de la info
         icono_info.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-            	/*
+                /*
             	 * Declaracio intent per pasar a infoObresActivity
             	 * Al clicar en el boto info d'un museu canviem d'activity passem l'ID del museu
             	 * i el boolea indicant si es una obra o un museu
             	 */
-
                 if (Utils.isExpandedMode(context)) {
                     ViewPager pager = (ViewPager) activity.findViewById(R.id.main_pager);
                     ScreenSlidePagerAdapter adapter = (ScreenSlidePagerAdapter) pager.getAdapter();
@@ -478,6 +320,8 @@ public class GridAdapterElements extends BaseAdapter {
             }
         });
 
+        imatge.setVisibility(View.INVISIBLE);
+
         //Set the image, if not exists, download from server
         ImageController.getInstance().setImageWithURL(grid, activity.getApplicationContext(), element.getImatgeURL(),
                 imatge, position);
@@ -486,6 +330,7 @@ public class GridAdapterElements extends BaseAdapter {
 
         //Establim el color i la visibilitat del icono 'info' segons el tipus d'element
         if (element instanceof Museu) {
+            icono_info.setImageDrawable(resources.getDrawable(R.mipmap.info_verde));
             icono_info.setVisibility(View.VISIBLE);
             text_subinfo.setVisibility(View.VISIBLE);
 
@@ -504,12 +349,7 @@ public class GridAdapterElements extends BaseAdapter {
                         text_subinfo.setText((int) distance / 1000 + "km");
                 }
             });
-            /*TODO
-            Location location = new Location("Stored");
-            location.setLatitude(((Museu) element).getLatitud());
-            location.setLongitude(((Museu) element).getLongitud());
-            text_subinfo.setText(MapController.getInstance().getDistanceTo(location));
-            */
+
         } else if (element instanceof Obra) {
             icono_info.setVisibility(View.GONE);
             text_subinfo.setVisibility(View.VISIBLE);
@@ -518,10 +358,11 @@ public class GridAdapterElements extends BaseAdapter {
             view_element.setBackgroundResource(R.drawable.widget_obra_element);
 
             if (LlistaObresFragment.getTipus())
-                text_subinfo.setText(Dades.getMuseu(((Obra) element).getMuseuId()).getTitol());
+                text_subinfo.setText(Dades.getMuseu(element.getMuseuId()).getTitol());
             else
                 text_subinfo.setText(Dades.getAutor(((Obra) element).getAutorId()).getTitol());
         } else if (element instanceof Autor) {
+            icono_info.setImageDrawable(resources.getDrawable(R.mipmap.info_rosa));
             icono_info.setVisibility(View.VISIBLE);
             text_subinfo.setVisibility(View.GONE);
             v.setBackgroundResource(R.drawable.widget_element);
@@ -529,5 +370,13 @@ public class GridAdapterElements extends BaseAdapter {
         }
 
         return v;
+    }
+
+    public enum TIPUS_ORDENACIO {
+        TIPUS_PER_TIPUS,
+        TIPUS_ALFABETIC,
+        TIPUS_ALFABETIC_INVERS,
+        TIPUS_VALORACIONS,
+        TIPUS_VALORACIONS_INVERS
     }
 }
