@@ -420,41 +420,6 @@ public class MainActivity extends FragmentActivity {
     }
 
     public boolean onPrepareOptionsMenu(Menu menu) {
-        /*
-        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
-        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
-        searchView.setIconifiedByDefault(true);
-        searchView.setIconified(true);
-        searchView.setQueryRefinementEnabled(true);
-        //When wirte text in SearchView -> search
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-
-            @Override
-            public boolean onQueryTextSubmit(String text) {
-                if (!searchView.isIconified()) {
-                    /*
-                    SearchListFragment.setTitle(text);
-                    SearchListFragment.search(text);
-                    adapter.setWhere("nom like '%" + text + "%'");
-                    adapter.populate(true);
-                    System.out.println(text);
-                }
-                return true;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String text) {
-                System.out.println(text);
-                if (!searchView.isIconified()) {
-                    /*
-                    SearchListFragment.setTitle(text);
-                    SearchListFragment.search(text);
-                }
-                return true;
-            }
-        });
-        */
         return true;
     }
 

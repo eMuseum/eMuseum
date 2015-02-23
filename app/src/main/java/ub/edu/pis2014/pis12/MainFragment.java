@@ -254,28 +254,6 @@ public class MainFragment extends Fragment {
         final View showSettings = view.findViewById(R.id.main_show_settings);
         final View settingsView = view.findViewById(R.id.main_search_settings);
 
-
-        /*
-        //Quan editem el EditText del buscador s'actualitzen els elements del gridView segons la busqueda
-        autocomplete.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                searchText = s.toString();
-                adapter.setWhere("nom like '%" + searchText + "%'");
-                adapter.populate(true);
-            }
-
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count,
-                                          int after) {
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-            }
-        });
-        */
-
         // Quan el checkbox de buscar museus canvia d'estat
         buscar_museu.setOnCheckedChangeListener(new OnCheckedChangeListener() {
             @Override
