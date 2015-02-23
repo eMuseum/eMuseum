@@ -44,6 +44,36 @@ public class ImageController implements ImageDownloaderDelegate {
         }
     }
 
+    public void setImageWithURL(String imageURL, ImageView imageView) {
+        if (imageURL != null) {
+            //Get the image name
+            Uri uri = Uri.parse(imageURL);
+            String fileName = uri.getLastPathSegment();
+            //Get the image path
+            String imagePath = pathForImageWithName(fileName);
+            //Check if folder can't create
+            if (imagePath == null) {
+                return;
+            }
+            //Check if the image is downloaded
+            File imageFile = new File(imagePath);
+            if (!imageFile.exists()) {
+                /* De moment es innecesari, si no hi ha internet no fara la descarrega
+                ConnectivityManager connMgr = (ConnectivityManager) MainActivity.activity.getSystemService(Context.CONNECTIVITY_SERVICE);
+                if (Utils.checkNetworkConnectionState(connMgr) == false) {
+                    return;//No conection
+                }
+                */
+                //Download the image asynchronously
+                ImageDownloader imDown = new ImageDownloader(this, imageURL, imagePath, imageView, 0);
+                imDown.execute("0");
+            } else {
+                //if the image exists in device, set it the imageView
+                setImageWithPath(imageView, imagePath);
+            }
+        }
+    }
+
     //Set the image in a ImageView with the device path, if not exist, download from the server and save on device
     public void setImageWithURL(GridView grid, Context context, String imageURL, ImageView imageView, int pos) {
         this.grid = grid;

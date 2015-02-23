@@ -63,6 +63,7 @@ import ub.edu.pis2014.pis12.controlador.API;
 import ub.edu.pis2014.pis12.controlador.APINotifier;
 import ub.edu.pis2014.pis12.controlador.APIOperation.TASK_TYPE;
 import ub.edu.pis2014.pis12.controlador.GridAdapterComentaris;
+import ub.edu.pis2014.pis12.controlador.ImageController;
 import ub.edu.pis2014.pis12.controlador.ScreenSlidePagerAdapter;
 import ub.edu.pis2014.pis12.model.Autor;
 import ub.edu.pis2014.pis12.model.Comentari;
@@ -79,7 +80,6 @@ import ub.edu.pis2014.pis12.utils.AnimationToggle;
 import ub.edu.pis2014.pis12.utils.ElementImageManager;
 import ub.edu.pis2014.pis12.utils.ExpandableHeightGridView;
 import ub.edu.pis2014.pis12.utils.HeightToggle;
-import ub.edu.pis2014.pis12.utils.OnImageDownload;
 import ub.edu.pis2014.pis12.utils.ScrollLoader;
 import ub.edu.pis2014.pis12.utils.ScrollLoaderListener;
 import ub.edu.pis2014.pis12.utils.ScrollViewEx;
@@ -220,7 +220,7 @@ public class InfoFragment extends Fragment implements TextToSpeech.OnInitListene
         // Obtenim i declarem el gridView dels comentaris
         gridviewComentaris = (ExpandableHeightGridView) view.findViewById(R.id.gridView_Comentaris);
         // Declara l'adapter del grid
-        adapter = new GridAdapterComentaris(getActivity(), context, element);
+        adapter = new GridAdapterComentaris(getActivity());
 
         // Views utilitzades per indicar a l'usuari com carregar mes elements
         final ScrollViewEx scrollInfoObres = (ScrollViewEx) view.findViewById(R.id.scrollInfoObres);
@@ -336,23 +336,14 @@ public class InfoFragment extends Fragment implements TextToSpeech.OnInitListene
         // Coloquem la imatge usant el imageDownloader.
         final ImageView imatge = (ImageView) view.findViewById(R.id.imageView_imatge);
 
-        // Indiquem al manager d'imatges l'activity i intentem descarregar
-        ElementImageManager.setActivity(getActivity());
-        ElementImageManager.getImage(element, new OnImageDownload() {
-
-            @Override
-            public void onFinish(Element element) {
-                // Establim la imatge i indiquem que cal redibuixar
-                imatge.setImageBitmap(element.getImatge());
-                imatge.requestLayout();
-            }
-        });
+        ImageController.getInstance().setImageWithURL(element.getImatgeURL(), imatge);
 
         //Quan cliquem a la imatge de l'element --> Zoom
         imatge.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (element.getImatge() != null) {
+                    //TODO: millorar el metode per augmentar una imatge
                     zoomImageFromThumb(imatge, element.getImatge(), view);
                 }
             }

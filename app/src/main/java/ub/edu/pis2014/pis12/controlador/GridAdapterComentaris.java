@@ -45,10 +45,10 @@ public class GridAdapterComentaris extends BaseAdapter {
      * @param isMuseu
      * @param isObra
      */
-    public GridAdapterComentaris(FragmentActivity activity, Context context, Element element) {
+    public GridAdapterComentaris(FragmentActivity activity) {
+        this.context = activity.getApplicationContext();
         inflater = LayoutInflater.from(context);
         this.activity = activity;
-        this.context = context;
     }
 
     public void setLoading(boolean loading) {
