@@ -34,6 +34,15 @@ import ub.edu.pis2014.pis12.utils.OnMapUpdate;
 import ub.edu.pis2014.pis12.utils.Utils;
 
 public class GridAdapterElements extends BaseAdapter {
+
+    public enum TIPUS_ORDENACIO {
+        TIPUS_PER_TIPUS,
+        TIPUS_ALFABETIC,
+        TIPUS_ALFABETIC_INVERS,
+        TIPUS_VALORACIONS,
+        TIPUS_VALORACIONS_INVERS
+    }
+
     TIPUS_ORDENACIO ordenacio = null;
     //Activity del gridAdapter
     private FragmentActivity activity;
@@ -370,13 +379,5 @@ public class GridAdapterElements extends BaseAdapter {
         }
 
         return v;
-    }
-
-    public enum TIPUS_ORDENACIO {
-        TIPUS_PER_TIPUS,
-        TIPUS_ALFABETIC,
-        TIPUS_ALFABETIC_INVERS,
-        TIPUS_VALORACIONS,
-        TIPUS_VALORACIONS_INVERS
     }
 }
