@@ -93,9 +93,6 @@ public class MainActivity extends FragmentActivity {
             resourceID = R.layout.activity_main_tablet;
         }
 
-        //Customize actionBar for show searchView
-        getActionBar().setDisplayHomeAsUpEnabled(true);
-
         setContentView(resourceID);
 
         // Inicialitzem les dades
