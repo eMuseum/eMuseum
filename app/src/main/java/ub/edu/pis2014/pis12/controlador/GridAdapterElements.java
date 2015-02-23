@@ -370,14 +370,14 @@ public class GridAdapterElements extends BaseAdapter {
      * Crea la vista per cada un dels elements. Es a dir, assigna els
      * valors a cada un dels Widgets del layout per l'element.
      *
-     * @param i         Posicio/index
+     * @param position         Posicio/index
      * @param view      Layout a utilitzar
      * @param viewGroup
      * @return La vista/layout amb els camps omplerts
      */
     @Override
-    public View getView(final int i, View view, final ViewGroup viewGroup) {
-        // Declarem cada un dels elements que ens interessen
+    public View getView(final int position, View view, final ViewGroup viewGroup) {
+// Declarem cada un dels elements que ens interessen
         View v = view;
 
         // No tenim vista? Utitilitzem la vista per defecte
@@ -393,14 +393,13 @@ public class GridAdapterElements extends BaseAdapter {
 
         // Obtenim l'Item, els widgets, i el ImageView de la info
 
-        final Element element = (Element) getItem(i);
+        final Element element = (Element) items.get(position);
         final ImageView icono_info = (ImageView) v.getTag(R.id.griditem_info);
         final ImageView imatge = (ImageView) v.getTag(R.id.griditem_imatge);
         final TextView title = (TextView) v.getTag(R.id.griditem_title);
         final TextView text_subinfo = (TextView) v.getTag(R.id.griditem_subinfo);
         final View view_element = (View) v.getTag(R.id.view_element);
         final Resources resources = context.getResources();
-
         if (element instanceof Museu)
             icono_info.setImageDrawable(resources.getDrawable(R.mipmap.info_verde));
 
@@ -481,10 +480,9 @@ public class GridAdapterElements extends BaseAdapter {
 
         //Set the image, if not exists, download from server
         ImageController.getInstance().setImageWithURL(grid, activity.getApplicationContext(), element.getImatgeURL(),
-                imatge, i);
+                imatge, position);
         // Posem el text
         title.setText(element.getTitol());
-
 
         //Establim el color i la visibilitat del icono 'info' segons el tipus d'element
         if (element instanceof Museu) {
@@ -492,24 +490,31 @@ public class GridAdapterElements extends BaseAdapter {
             text_subinfo.setVisibility(View.VISIBLE);
 
             //Per veure com queda i ajustar els textView
-            v.setBackgroundResource(R.drawable.widget_element);
+            view.setBackgroundResource(R.drawable.widget_element);
             view_element.setBackgroundResource(R.drawable.widget_museu_element);
 
             text_subinfo.setText(MapUtil.getDistanceFromLastKnown(((Museu) element).getLatitud(), ((Museu) element).getLongitud()));
 
             MapUtil.addListener(new OnMapUpdate((Museu) element) {
                 public void onUpdate(double distance) {
+
                     if (distance < 1000)
                         text_subinfo.setText((int) distance + "m");
                     else
                         text_subinfo.setText((int) distance / 1000 + "km");
                 }
             });
+            /*TODO
+            Location location = new Location("Stored");
+            location.setLatitude(((Museu) element).getLatitud());
+            location.setLongitude(((Museu) element).getLongitud());
+            text_subinfo.setText(MapController.getInstance().getDistanceTo(location));
+            */
         } else if (element instanceof Obra) {
             icono_info.setVisibility(View.GONE);
             text_subinfo.setVisibility(View.VISIBLE);
             text_subinfo.setText(Dades.getAutor(((Obra) element).getAutorId()).getTitol());
-            v.setBackgroundResource(R.drawable.widget_element);
+            view.setBackgroundResource(R.drawable.widget_element);
             view_element.setBackgroundResource(R.drawable.widget_obra_element);
 
             if (LlistaObresFragment.getTipus())
@@ -519,10 +524,10 @@ public class GridAdapterElements extends BaseAdapter {
         } else if (element instanceof Autor) {
             icono_info.setVisibility(View.VISIBLE);
             text_subinfo.setVisibility(View.GONE);
-            v.setBackgroundResource(R.drawable.widget_element);
+            view.setBackgroundResource(R.drawable.widget_element);
             view_element.setBackgroundResource(R.drawable.widget_autor_element);
         }
 
-        return v;
+        return view;
     }
 }
