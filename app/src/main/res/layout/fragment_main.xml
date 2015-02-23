@@ -18,38 +18,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/splash_titol"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@android:drawable/ic_menu_search" />
-
-            <EditText
-                android:id="@+id/main_search_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginRight="30dp"
-                android:ems="10"
-                android:hint="@string/main_search_hint"
-                android:text=""
-                android:textColorHint="@color/semitransparent_white"
-                android:textColor="@color/white"
-                android:lines="1"
-                android:maxLines="1"
-                android:singleLine="true"
-                android:imeOptions="actionNext">
-
-                <requestFocus />
-            </EditText>
-
             <Button
                 android:id="@+id/main_show_settings"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginBottom="-20dp"
-                android:layout_marginLeft="-35dp"
-                android:layout_marginTop="20dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="300dp"
+                android:layout_marginTop="5dp"
                 android:background="@drawable/arrow_down" />
 
         </LinearLayout>
@@ -58,8 +33,7 @@
             android:id="@+id/main_grid_museus"
             style="@layout/view_griditem"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_height="match_parent"
             android:numColumns="1"></GridView>
 
     </LinearLayout>

@@ -1,5 +1,6 @@
 package ub.edu.pis2014.pis12;
 
+import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -8,10 +9,9 @@ import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.Display;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.RotateAnimation;
@@ -22,9 +22,9 @@ import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
-import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.RelativeLayout;
+import android.widget.SearchView;
 import android.widget.Spinner;
 
 import com.espian.showcaseview.ShowcaseViews;
@@ -61,11 +61,11 @@ public class MainFragment extends Fragment {
     RotateToggle rotateToggle = null;
 
     private static GridAdapterElements adapter = null;
-    private static String searchText = null;
     private static boolean museuChecked = true;
     private static boolean obraChecked = false;
     private static boolean autorChecked = false;
     private static int posicioOrdre = 0;
+    private SearchView searchView;
 
     // Inentar actualitzar la DB un sol cop
     private static boolean comprobaDB = true;
@@ -80,6 +80,7 @@ public class MainFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        setHasOptionsMenu(true);
         return inflater.inflate(R.layout.fragment_main, container, false);
     }
 
@@ -96,9 +97,6 @@ public class MainFragment extends Fragment {
 
         // Obtenir el gridview
         final GridView gridView = (GridView) view.findViewById(R.id.main_grid_museus);
-
-        // Obtenir el camp del buscador
-        final EditText autocomplete = (EditText) view.findViewById(R.id.main_search_view);
 
         //Obte els checkboxs i el EditText del buscador
         final CheckBox buscar_museu = (CheckBox) view.findViewById(R.id.view_search_per_museu);
@@ -128,7 +126,6 @@ public class MainFragment extends Fragment {
             // Provoquem un redibuixat
             gridView.invalidate();
 
-            autocomplete.setText(searchText);
             buscar_museu.setChecked(museuChecked);
             buscar_autor.setChecked(autorChecked);
             buscar_obra.setChecked(obraChecked);
@@ -257,6 +254,8 @@ public class MainFragment extends Fragment {
         final View showSettings = view.findViewById(R.id.main_show_settings);
         final View settingsView = view.findViewById(R.id.main_search_settings);
 
+
+        /*
         //Quan editem el EditText del buscador s'actualitzen els elements del gridView segons la busqueda
         autocomplete.addTextChangedListener(new TextWatcher() {
             @Override
@@ -275,6 +274,7 @@ public class MainFragment extends Fragment {
             public void afterTextChanged(Editable s) {
             }
         });
+        */
 
         // Quan el checkbox de buscar museus canvia d'estat
         buscar_museu.setOnCheckedChangeListener(new OnCheckedChangeListener() {
@@ -363,10 +363,10 @@ public class MainFragment extends Fragment {
             //co.hideOnClickOutside = false;
             //ShowcaseView.insertShowcaseView(R.id.main_search_view, getActivity(), R.string.tutorial, R.string.tutorial_main_search, co);
             ShowcaseViews views = new ShowcaseViews(getActivity());
-            views.addView(new ShowcaseViews.ItemViewProperties(R.id.main_search_view, R.string.tutorial, R.string.tutorial_main_search));
+          //TODO:  views.addView(new ShowcaseViews.ItemViewProperties(R.id.main_search_view, R.string.tutorial, R.string.tutorial_main_search));
             views.addView(new ShowcaseViews.ItemViewProperties(R.id.main_show_settings, R.string.tutorial, R.string.tutorial_main_settings));
             views.addView(new ShowcaseViews.ItemViewProperties(R.id.main_grid_museus, R.string.tutorial, R.string.tutorial_main_museus));
-            views.addView(new ShowcaseViews.ItemViewProperties(R.id.main_search_view, R.string.tutorial, R.string.tutorial_main_camera));
+            //TODO: views.addView(new ShowcaseViews.ItemViewProperties(R.id.main_search_view, R.string.tutorial, R.string.tutorial_main_camera));
 
             Display display = getActivity().getWindowManager().getDefaultDisplay();
             float x = display.getWidth() / 2;
@@ -375,6 +375,40 @@ public class MainFragment extends Fragment {
 
             views.show();
         }
+    }
+
+    public void onPrepareOptionsMenu(Menu menu) {
+        SearchManager searchManager = (SearchManager) getActivity().getSystemService(Context.SEARCH_SERVICE);
+        searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getActivity().getComponentName()));
+        searchView.setIconifiedByDefault(true);
+        searchView.setIconified(true);
+        searchView.setQueryRefinementEnabled(true);
+        //When wirte text in SearchView -> search
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+
+            @Override
+            public boolean onQueryTextSubmit(String text) {
+                if (!searchView.isIconified()) {
+                    searchElementsWithString(text);
+                }
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String text) {
+                if (!searchView.isIconified()) {
+                    searchElementsWithString(text);
+                }
+                return true;
+            }
+        });
+    }
+
+    public void searchElementsWithString(String text) {
+        adapter.setWhere("nom like '%" + text + "%'");
+        adapter.populate(true);
+        System.out.println(text);
     }
 
     @Override

@@ -45,6 +45,12 @@ import ub.edu.pis2014.pis12.utils.WifiScanConnection;
  */
 @SuppressLint("ResourceAsColor")
 public class MainActivity extends FragmentActivity {
+    private static final int MENU_LOGIN = Menu.FIRST;
+    private static final int MENU_UPDATE = Menu.FIRST + 1;
+    private static final int MENU_HELP = Menu.FIRST + 2;
+    private static final int MENU_SETTINGS = Menu.FIRST + 3;
+    private static final int MENU_LANGUAGE = Menu.FIRST + 4;
+
     public static final int ACTIVITY_CREATE = 1;
 
     public static boolean mostrantObra = false;
@@ -86,6 +92,9 @@ public class MainActivity extends FragmentActivity {
         if (Utils.isExpandedMode(this)) {
             resourceID = R.layout.activity_main_tablet;
         }
+
+        //Customize actionBar for show searchView
+        getActionBar().setDisplayHomeAsUpEnabled(true);
 
         setContentView(resourceID);
 
@@ -280,30 +289,38 @@ public class MainActivity extends FragmentActivity {
      */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
+        getMenuInflater().inflate(R.menu.menu_asd, menu);
+        //Add submenu options
+        int logged;
+        logged = Usuari.get().isLogged() ? R.string.action_iniciar_sessio : R.string.action_tancar_sessio;
+        menu.add(0, MENU_LOGIN, Menu.NONE, logged);
+        menu.add(0, MENU_UPDATE, Menu.NONE, R.string.action_buscar_actualitzacio);
+        menu.add(0, MENU_HELP, Menu.NONE, R.string.action_ajuda);
+        menu.add(0, MENU_SETTINGS, Menu.NONE, R.string.action_settings);
+        menu.add(0, MENU_LANGUAGE, Menu.NONE, R.string.action_canviar_idioma);
+        return super.onCreateOptionsMenu(menu);
     }
 
 
     public boolean onOptionsItemSelected(MenuItem item) {
         Intent intent;
         switch (item.getItemId()) {
-            case R.id.action_settings:
+            case MENU_SETTINGS:
                 intent = new Intent(MainActivity.this, SettingsActivity.class);
                 startActivity(intent);
                 return true;
 
-            case R.id.action_ajuda:
+            case MENU_HELP:
                 intent = new Intent(MainActivity.this, AjudaActivity.class);
                 startActivity(intent);
                 Toast.makeText(this, R.string.action_ajuda, Toast.LENGTH_SHORT).show();
                 return true;
 
-            case R.id.action_buscar_actualitzacio:
+            case MENU_UPDATE:
                 buscarActualitzacions(this, null);
                 return true;
 
-            case R.id.action_tancar_sessio:
+            case MENU_LOGIN:
                 Usuari.get().logout();
                 intent = new Intent(MainActivity.this, SplashActivity.class);
                 intent.putExtra("skipLogin", true);
@@ -311,15 +328,7 @@ public class MainActivity extends FragmentActivity {
                 startActivity(intent);
                 return true;
 
-            case R.id.action_iniciar_sessio:
-                Usuari.get().logout();
-                intent = new Intent(MainActivity.this, SplashActivity.class);
-                intent.putExtra("skipLogin", true);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-                return true;
-
-            case R.id.action_canviar_idioma://Canviar Vista
+            case MENU_LANGUAGE://Canviar Vista
                 //
                 AlertDialog.Builder builderIdioma = new AlertDialog.Builder(this);
 
@@ -411,13 +420,41 @@ public class MainActivity extends FragmentActivity {
     }
 
     public boolean onPrepareOptionsMenu(Menu menu) {
-        if (!Usuari.get().isLogged()) {
-            MenuItem item = menu.findItem(R.id.action_tancar_sessio);
-            item.setVisible(false);
-        } else {
-            MenuItem item = menu.findItem(R.id.action_iniciar_sessio);
-            item.setVisible(false);
-        }
+        /*
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+        searchView.setIconifiedByDefault(true);
+        searchView.setIconified(true);
+        searchView.setQueryRefinementEnabled(true);
+        //When wirte text in SearchView -> search
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+
+            @Override
+            public boolean onQueryTextSubmit(String text) {
+                if (!searchView.isIconified()) {
+                    /*
+                    SearchListFragment.setTitle(text);
+                    SearchListFragment.search(text);
+                    adapter.setWhere("nom like '%" + text + "%'");
+                    adapter.populate(true);
+                    System.out.println(text);
+                }
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String text) {
+                System.out.println(text);
+                if (!searchView.isIconified()) {
+                    /*
+                    SearchListFragment.setTitle(text);
+                    SearchListFragment.search(text);
+                }
+                return true;
+            }
+        });
+        */
         return true;
     }
 
