@@ -393,7 +393,7 @@ public class GridAdapterElements extends BaseAdapter {
 
         // Obtenim l'Item, els widgets, i el ImageView de la info
 
-        final Element element = (Element) items.get(position);
+        final Element element = items.get(position);
         final ImageView icono_info = (ImageView) v.getTag(R.id.griditem_info);
         final ImageView imatge = (ImageView) v.getTag(R.id.griditem_imatge);
         final TextView title = (TextView) v.getTag(R.id.griditem_title);
@@ -490,7 +490,7 @@ public class GridAdapterElements extends BaseAdapter {
             text_subinfo.setVisibility(View.VISIBLE);
 
             //Per veure com queda i ajustar els textView
-            view.setBackgroundResource(R.drawable.widget_element);
+            v.setBackgroundResource(R.drawable.widget_element);
             view_element.setBackgroundResource(R.drawable.widget_museu_element);
 
             text_subinfo.setText(MapUtil.getDistanceFromLastKnown(((Museu) element).getLatitud(), ((Museu) element).getLongitud()));
@@ -514,7 +514,7 @@ public class GridAdapterElements extends BaseAdapter {
             icono_info.setVisibility(View.GONE);
             text_subinfo.setVisibility(View.VISIBLE);
             text_subinfo.setText(Dades.getAutor(((Obra) element).getAutorId()).getTitol());
-            view.setBackgroundResource(R.drawable.widget_element);
+            v.setBackgroundResource(R.drawable.widget_element);
             view_element.setBackgroundResource(R.drawable.widget_obra_element);
 
             if (LlistaObresFragment.getTipus())
@@ -524,10 +524,10 @@ public class GridAdapterElements extends BaseAdapter {
         } else if (element instanceof Autor) {
             icono_info.setVisibility(View.VISIBLE);
             text_subinfo.setVisibility(View.GONE);
-            view.setBackgroundResource(R.drawable.widget_element);
+            v.setBackgroundResource(R.drawable.widget_element);
             view_element.setBackgroundResource(R.drawable.widget_autor_element);
         }
 
-        return view;
+        return v;
     }
 }
