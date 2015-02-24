@@ -41,9 +41,7 @@ public class GridAdapterComentaris extends BaseAdapter {
     /**
      * Constructor de la classe, inicialitza els comentaris (items)
      *
-     * @param context Activity que crea l'adaptador
-     * @param isMuseu
-     * @param isObra
+     * @param activity Activity que crea l'adaptador
      */
     public GridAdapterComentaris(FragmentActivity activity) {
         this.context = activity.getApplicationContext();

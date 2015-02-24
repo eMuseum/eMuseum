@@ -335,10 +335,10 @@ public class MainFragment extends Fragment {
             //co.hideOnClickOutside = false;
             //ShowcaseView.insertShowcaseView(R.id.main_search_view, getActivity(), R.string.tutorial, R.string.tutorial_main_search, co);
             ShowcaseViews views = new ShowcaseViews(getActivity());
-          //TODO:  views.addView(new ShowcaseViews.ItemViewProperties(R.id.main_search_view, R.string.tutorial, R.string.tutorial_main_search));
+            views.addView(new ShowcaseViews.ItemViewProperties(R.id.action_search, R.string.tutorial, R.string.tutorial_main_search));
             views.addView(new ShowcaseViews.ItemViewProperties(R.id.main_show_settings, R.string.tutorial, R.string.tutorial_main_settings));
             views.addView(new ShowcaseViews.ItemViewProperties(R.id.main_grid_museus, R.string.tutorial, R.string.tutorial_main_museus));
-            //TODO: views.addView(new ShowcaseViews.ItemViewProperties(R.id.main_search_view, R.string.tutorial, R.string.tutorial_main_camera));
+            views.addView(new ShowcaseViews.ItemViewProperties(R.id.action_search, R.string.tutorial, R.string.tutorial_main_camera));
 
             Display display = getActivity().getWindowManager().getDefaultDisplay();
             float x = display.getWidth() / 2;
