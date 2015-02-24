@@ -314,9 +314,7 @@ public class GridAdapterElements extends BaseAdapter {
                     adapter.customize(fragment);
                     pager.setCurrentItem(1, true);
                 } else {
-                    Intent i = new Intent(context, InfoActivity.class);
-                    i.putExtra("id", element.getId());
-                    i.putExtra("tipus", TIPUS_ELEMENT.getFromElement(element));
+
 
                     if (element instanceof Museu)
                         icono_info.setImageDrawable(resources.getDrawable(R.mipmap.info_verde));
@@ -324,6 +322,10 @@ public class GridAdapterElements extends BaseAdapter {
                     else if (element instanceof Autor)
                         icono_info.setImageDrawable(resources.getDrawable(R.mipmap.info_rosa));
 
+                    Intent i = new Intent(context, InfoActivity.class);
+                    i.putExtra("id", element.getId());
+                    i.putExtra("tipus", TIPUS_ELEMENT.getFromElement(element));
+                    i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(i);
                 }
             }
