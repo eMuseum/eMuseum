@@ -287,7 +287,7 @@ public class MainActivity extends FragmentActivity {
         getMenuInflater().inflate(R.menu.menu_asd, menu);
         //Add submenu options
         int logged;
-        logged = Usuari.get().isLogged() ? R.string.action_iniciar_sessio : R.string.action_tancar_sessio;
+        logged = Usuari.get().isLogged() ?  R.string.action_tancar_sessio: R.string.action_iniciar_sessio;
         menu.add(0, MENU_LOGIN, Menu.NONE, logged);
         menu.add(0, MENU_UPDATE, Menu.NONE, R.string.action_buscar_actualitzacio);
         menu.add(0, MENU_HELP, Menu.NONE, R.string.action_ajuda);

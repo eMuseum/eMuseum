@@ -26,6 +26,7 @@ import android.widget.GridView;
 import android.widget.SearchView;
 import android.widget.Spinner;
 
+import com.espian.showcaseview.ShowcaseView;
 import com.espian.showcaseview.ShowcaseViews;
 
 import java.util.concurrent.Callable;
@@ -331,9 +332,9 @@ public class MainFragment extends Fragment {
             editor.putBoolean("MAIN_FIRST_RUN", false);
             editor.commit();
 
-            //ShowcaseView.ConfigOptions co = new ShowcaseView.ConfigOptions();
-            //co.hideOnClickOutside = false;
-            //ShowcaseView.insertShowcaseView(R.id.main_search_view, getActivity(), R.string.tutorial, R.string.tutorial_main_search, co);
+            ShowcaseView.ConfigOptions co = new ShowcaseView.ConfigOptions();
+            co.hideOnClickOutside = false;
+            ShowcaseView.insertShowcaseView(R.id.action_search, getActivity(), R.string.tutorial, R.string.tutorial_main_search, co);
             ShowcaseViews views = new ShowcaseViews(getActivity());
             views.addView(new ShowcaseViews.ItemViewProperties(R.id.action_search, R.string.tutorial, R.string.tutorial_main_search));
             views.addView(new ShowcaseViews.ItemViewProperties(R.id.main_show_settings, R.string.tutorial, R.string.tutorial_main_settings));
