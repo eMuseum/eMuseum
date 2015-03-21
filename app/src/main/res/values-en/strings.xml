@@ -33,6 +33,7 @@
     <string name="view_search_obra">By painting</string>
     <string name="view_search_autor">By author</string>
     <string name="view_search_museu">By museum</string>
+    <string name="view_search_type">Filter by</string>
     <string name="view_search_ordenar">Order by:</string>
     <string name="title_activity_museus_fragment">Museum</string>
     <string name="title_activity_qrfragment">QRFragment</string>

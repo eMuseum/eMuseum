@@ -33,6 +33,7 @@
     <string name="view_search_obra">查找作品</string>
     <string name="view_search_autor">查找作者</string>
     <string name="view_search_museu">查找博物馆</string>
+    <string name="view_search_type">Filtrar por</string>
     <string name="view_search_ordenar">排序根据:</string>
     <string name="title_activity_museus_fragment">Museos</string>
     <string name="title_activity_qrfragment">QRFragment</string>

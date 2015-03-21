@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/barcodescanner/barcodescanner.iml" filepath="$PROJECT_DIR$/barcodescanner/barcodescanner.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eMuseum.iml" filepath="$PROJECT_DIR$/eMuseum.iml" />
       <module fileurl="file://$PROJECT_DIR$/showcaseview/showcaseview.iml" filepath="$PROJECT_DIR$/showcaseview/showcaseview.iml" />
     </modules>
   </component>

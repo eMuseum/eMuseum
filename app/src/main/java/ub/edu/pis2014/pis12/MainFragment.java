@@ -1,7 +1,9 @@
 package ub.edu.pis2014.pis12;
 
+import android.app.AlertDialog;
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -12,16 +14,13 @@ import android.support.v4.view.ViewPager;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.RotateAnimation;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.GridView;
 import android.widget.SearchView;
 import android.widget.Spinner;
@@ -41,10 +40,8 @@ import ub.edu.pis2014.pis12.model.Museu;
 import ub.edu.pis2014.pis12.model.Obra;
 import ub.edu.pis2014.pis12.model.TIPUS_ELEMENT;
 import ub.edu.pis2014.pis12.utils.AlphaBoth;
-import ub.edu.pis2014.pis12.utils.AlphaToggle;
 import ub.edu.pis2014.pis12.utils.ElementImageManager;
 import ub.edu.pis2014.pis12.utils.MapUtil;
-import ub.edu.pis2014.pis12.utils.RotateToggle;
 import ub.edu.pis2014.pis12.utils.Utils;
 
 /**
@@ -60,9 +57,6 @@ public class MainFragment extends Fragment {
     private static int posicioOrdre = 0;
     // Inentar actualitzar la DB un sol cop
     private static boolean comprobaDB = true;
-    // Variables utilitzades per les animacions
-    AlphaToggle alphaToggle = null;
-    RotateToggle rotateToggle = null;
     private SearchView searchView;
 
     public static void clearStatic() {
@@ -93,15 +87,15 @@ public class MainFragment extends Fragment {
         // Obtenir el gridview
         final GridView gridView = (GridView) view.findViewById(R.id.main_grid_museus);
 
-        //Obte els checkboxs i el EditText del buscador
-        final CheckBox buscar_museu = (CheckBox) view.findViewById(R.id.view_search_per_museu);
-        final CheckBox buscar_obra = (CheckBox) view.findViewById(R.id.view_search_per_obra);
-        final CheckBox buscar_autor = (CheckBox) view.findViewById(R.id.view_search_per_autor);
-
         // Obte el filtre d'ordre
         final Spinner spinner_ordenar = (Spinner) view.findViewById(R.id.view_search_ordre);
+        final Spinner spinner_types = (Spinner) view.findViewById(R.id.view_search_type);
 
-        // Crea un ArrayAdapter utilitzan els items de l'arxiu ordenar_array.xml
+        final ArrayAdapter<String> spinner_types_adapter = new ArrayAdapter<String>(context,android.R.layout.simple_spinner_item);
+
+        spinner_types.setAdapter(spinner_types_adapter);
+        spinner_types_adapter.add(getSelectedItemsAsString());
+
         ArrayAdapter<CharSequence> spinner_adapter = ArrayAdapter.createFromResource(this.getActivity(), R.array.ordenar_array, android.R.layout.simple_spinner_item);
         // Especifica el layout que utilitzarem (simple)
         spinner_adapter.setDropDownViewResource(R.layout.spinner_item);
@@ -120,80 +114,11 @@ public class MainFragment extends Fragment {
             ElementImageManager.setActivity(getActivity());
             // Provoquem un redibuixat
             gridView.invalidate();
-
-            buscar_museu.setChecked(museuChecked);
-            buscar_autor.setChecked(autorChecked);
-            buscar_obra.setChecked(obraChecked);
             spinner_ordenar.setSelection(posicioOrdre);
         }
 
         // Coloca l'adapter al grid
         gridView.setAdapter(adapter);
-/*
-        // Views utilitzades per indicar a l'usuari com carregar mes elements
-        final RelativeLayout loadMore = (RelativeLayout) view.findViewById(R.id.load_more_layout);
-        final View loadMoreImg = view.findViewById(R.id.load_more_img);
-        final View upForMore = view.findViewById(R.id.txt_up_more);
-        final View upClick = view.findViewById(R.id.txt_up_click);
-/*
-        // Classe per gestionar l'scroll i la carrega de nous elements
-        new ScrollLoader(gridView, new ScrollLoaderListener() {
-
-            @Override
-            public boolean isEnabled() {
-                // Solament ho activem si tenim algun element en el grid
-                return adapter.getCount() > 0;
-            }
-
-            @Override
-            public void onEventDown() {
-                // Mostrem els textos d'ajuda
-                upForMore.setVisibility(View.VISIBLE);
-                upClick.setVisibility(View.GONE);
-            }
-
-            @Override
-            public void onEventMove(float alphaY, boolean carregarElements) {
-                // Si tenim desplacament positiu
-                if (alphaY > 0) {
-                    // Mostrem els elements d'ajuda
-                    loadMore.setVisibility(View.VISIBLE);
-                    loadMoreImg.getLayoutParams().height = (int) (alphaY / 4);
-                    loadMoreImg.requestLayout();
-                } else {
-                    // Amaguem els elements d'ajuda
-                    loadMore.setVisibility(View.GONE);
-                }
-
-                // Si ja es poden carregar
-                if (carregarElements) {
-                    // Mostrem l'ajuda de que es pot deixar anar
-                    upForMore.setVisibility(View.GONE);
-                    upClick.setVisibility(View.VISIBLE);
-                } else {
-                    // Mostrem l'ajuda de pujar
-                    upForMore.setVisibility(View.VISIBLE);
-                    upClick.setVisibility(View.GONE);
-                }
-            }
-
-            @Override
-            public void onEventUp(float alphaY, boolean carregarElements) {
-                // Si cal carregar nous elements
-                if (carregarElements) {
-                    // Carregar mes elements
-                    int position = gridView.getLastVisiblePosition();
-                    if (adapter.loadMore()) {
-                        gridView.smoothScrollToPosition(position + 1);
-                    }
-                }
-
-                // Restrablim les variables
-                loadMore.setVisibility(View.GONE);
-            }
-        });
-
-        */
 
         // Quan clickes a un element del grid
         gridView.setOnItemClickListener(new OnItemClickListener() {
@@ -246,39 +171,6 @@ public class MainFragment extends Fragment {
             }
         });
 
-        // Quan clickes al desplegable d'opcions, es mostra
-        final View showSettings = view.findViewById(R.id.main_show_settings);
-        final View settingsView = view.findViewById(R.id.main_search_settings);
-
-        // Quan el checkbox de buscar museus canvia d'estat
-        buscar_museu.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                museuChecked = isChecked;
-                adapter.setMuseus(isChecked);
-            }
-        });
-
-        // Quan el checkbox de buscar obres canvia d'estat
-        buscar_obra.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView,
-                                         boolean isChecked) {
-                obraChecked = isChecked;
-                adapter.setObres(isChecked);
-            }
-        });
-
-        // Quan el checkbox de buscar autors canvia d'estat
-        buscar_autor.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView,
-                                         boolean isChecked) {
-                autorChecked = isChecked;
-                adapter.setAutors(isChecked);
-            }
-        });
-
         spinner_ordenar.setOnItemSelectedListener(new OnItemSelectedListener() {
 
             @Override
@@ -292,10 +184,59 @@ public class MainFragment extends Fragment {
             }
         });
 
-        // Crea i estableix les animacions del filtre de cerca
-        alphaToggle = new AlphaToggle(showSettings, settingsView, 1000);
-        rotateToggle = new RotateToggle(showSettings, showSettings, 1000);
-        rotateToggle.setParams(RotateAnimation.RELATIVE_TO_SELF, 0.50f, RotateAnimation.RELATIVE_TO_SELF, 0.15f);
+        //On click type filter
+        spinner_types.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        boolean itemsChecked[] = {museuChecked, autorChecked, obraChecked};
+
+                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                        // Set the dialog title
+                        builder.setTitle(R.string.view_search_type)
+                                // Specify the list array, the items to be selected by default (null for none),
+                                // and the listener through which to receive callbacks when items are selected
+                                .setMultiChoiceItems(R.array.types_array, itemsChecked ,
+                                        new DialogInterface.OnMultiChoiceClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialog, int which,
+                                                                boolean isChecked) {
+
+                                                switch (which) {
+                                                    case 0:
+                                                        museuChecked = isChecked;
+                                                        adapter.setMuseus(isChecked);
+                                                        break;
+                                                    case 1:
+                                                        autorChecked = isChecked;
+                                                        adapter.setAutors(isChecked);
+                                                        break;
+                                                    case 2:
+                                                        obraChecked = isChecked;
+                                                        adapter.setObres(isChecked);
+                                                        break;
+                                                }
+                                                spinner_types_adapter.clear();
+                                                spinner_types_adapter.add(getSelectedItemsAsString());
+                                            }
+                                        })
+                                        // Set the action buttons
+                                .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int id) {
+                                    }
+                                });
+
+                        builder.create();
+
+                        builder.show();
+
+                }
+                return true;
+            }
+        });
 
         // Solament comprobar la versio 1 cop
         if (comprobaDB) {
@@ -337,7 +278,7 @@ public class MainFragment extends Fragment {
             ShowcaseView.insertShowcaseView(R.id.action_search, getActivity(), R.string.tutorial, R.string.tutorial_main_search, co);
             ShowcaseViews views = new ShowcaseViews(getActivity());
             views.addView(new ShowcaseViews.ItemViewProperties(R.id.action_search, R.string.tutorial, R.string.tutorial_main_search));
-            views.addView(new ShowcaseViews.ItemViewProperties(R.id.main_show_settings, R.string.tutorial, R.string.tutorial_main_settings));
+            views.addView(new ShowcaseViews.ItemViewProperties(R.id.view_search_ordre, R.string.tutorial, R.string.tutorial_main_settings));
             views.addView(new ShowcaseViews.ItemViewProperties(R.id.main_grid_museus, R.string.tutorial, R.string.tutorial_main_museus));
             views.addView(new ShowcaseViews.ItemViewProperties(R.id.action_search, R.string.tutorial, R.string.tutorial_main_camera));
 
@@ -348,6 +289,26 @@ public class MainFragment extends Fragment {
 
             views.show();
         }
+    }
+
+    public String getSelectedItemsAsString() {
+        StringBuilder sb = new StringBuilder();
+        boolean foundOne = false;
+        String[] items = getResources().getStringArray(R.array.types_array);
+        boolean itemsChecked[] = {museuChecked, autorChecked, obraChecked};
+        for (int i = 0; i < items.length; ++i) {
+            if (itemsChecked[i]) {
+                if (foundOne) {
+                    sb.append(", ");
+                }
+                foundOne = true;
+                sb.append(items[i]);
+            }
+        }
+        if (sb.toString().length() == 0) {
+            return getResources().getString(R.string.view_search_type);
+        }
+        return sb.toString();
     }
 
     public void onPrepareOptionsMenu(Menu menu) {

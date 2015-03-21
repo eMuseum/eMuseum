@@ -34,6 +34,7 @@
     <string name="view_search_autor">Por autor</string>
     <string name="view_search_museu">Por museo</string>
     <string name="view_search_ordenar">Ordenar por</string>
+    <string name="view_search_type">Filtrar por</string>
     <string name="title_activity_museus_fragment">Museos</string>
     <string name="title_activity_qrfragment">QRFragment</string>
     <string name="title_activity_registrarse">Registrarse</string>
