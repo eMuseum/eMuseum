@@ -344,7 +344,6 @@ public class InfoFragment extends Fragment implements TextToSpeech.OnInitListene
             public void onClick(View v) {
                 if (element.getImatge() != null) {
                     //TODO: millorar el metode per augmentar una imatge
-                   // zoomImageFromThumb(imatge, element.getImatge());
                     zoomImageFromThumb(imatge, element.getImatge(), view);
                 }
             }
