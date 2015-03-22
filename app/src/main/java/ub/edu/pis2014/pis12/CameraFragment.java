@@ -3,6 +3,7 @@ package ub.edu.pis2014.pis12;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -25,6 +26,8 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import me.dm7.barcodescanner.zbar.BarcodeFormat;
 import me.dm7.barcodescanner.zbar.Result;
@@ -222,8 +225,20 @@ public class CameraFragment extends Fragment implements ZBarScannerView.ResultHa
                 openInformation(element, tipusElement);
 
             } catch (JSONException e) {
-                Toast.makeText(getActivity(), R.string.toast_invalid_qr,
-                        Toast.LENGTH_LONG).show();
+                System.out.println(contents);
+                // Probem de mirar si es un link a youtube
+                String pattern = "^(http\\:\\/\\/)?(www\\.)?(youtube\\.com|youtu\\.?be)\\/.+$";
+                // Create a Pattern object
+                Pattern r = Pattern.compile(pattern);
+
+                // Now create matcher object.
+                Matcher m = r.matcher(contents);
+                if (m.find()) {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(contents)));
+                } else {
+                    Toast.makeText(getActivity(), R.string.toast_invalid_qr,
+                            Toast.LENGTH_LONG).show();
+                }
             } catch (ArrayIndexOutOfBoundsException e) {
                 Toast.makeText(getActivity(), R.string.toast_invalid_qr,
                         Toast.LENGTH_LONG).show();
