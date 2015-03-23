@@ -262,7 +262,7 @@ public class CameraFragment extends Fragment implements ZBarScannerView.ResultHa
             @Override
             protected List<String> doInBackground(Void... params) {
                 String charset = "UTF-8";
-                String requestURL = "http://161.116.52.239:8080/android";
+                String requestURL = "http://62.210.253.55:8080/android";
 
                 try {
                     MultipartUtility multipart = new MultipartUtility(requestURL, charset);

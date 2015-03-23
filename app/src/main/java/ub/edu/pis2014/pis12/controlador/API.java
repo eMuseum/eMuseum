@@ -211,7 +211,7 @@ public class API {
         // Temps maxim de lectura de 2 segons
         socket.setSoTimeout(4000);
         // Connecta amb un timeout de 2 segons
-        socket.connect(new InetSocketAddress("37.187.247.18", 8000), 4000);
+        socket.connect(new InetSocketAddress("62.210.253.55", 8000), 4000);
 
         // Envia el JSON
         PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
