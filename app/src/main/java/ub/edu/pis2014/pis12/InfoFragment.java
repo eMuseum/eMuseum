@@ -213,7 +213,7 @@ public class InfoFragment extends Fragment implements TextToSpeech.OnInitListene
         // Variables globals
         activity = getActivity();
         context = view.getContext();
-        tts = new TextToSpeech(context, null);
+        tts = new TextToSpeech(context, this);
 
         // Inicialitzem elements globals
 
@@ -532,7 +532,6 @@ public class InfoFragment extends Fragment implements TextToSpeech.OnInitListene
 
     @Override
     public void onInit(int status) {
-
         if (status == TextToSpeech.SUCCESS) {
 
             int result = tts.setLanguage(Locale.getDefault());
@@ -566,16 +565,16 @@ public class InfoFragment extends Fragment implements TextToSpeech.OnInitListene
         HashMap<String, String> myHashRender = new HashMap<String, String>();
         myHashRender.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, element.getDescripcio());
 
+        String state = Environment.getExternalStorageState();
+        if (!Environment.MEDIA_MOUNTED.equals(state)) {
+            Toast.makeText(context, R.string.toast_tts_error, Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        destFilename = Environment.getExternalStorageDirectory().getPath() + "/repro.wav";
+
         // Executem paralelament
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
-
-            String state = Environment.getExternalStorageState();
-            if (!Environment.MEDIA_MOUNTED.equals(state)) {
-                Toast.makeText(context, R.string.toast_tts_error, Toast.LENGTH_LONG).show();
-                return;
-            }
-
-            destFilename = Environment.getExternalStorageDirectory().getPath() + "/repro.wav";
             tts.setOnUtteranceCompletedListener(new OnUtteranceCompletedListener() {
 
                 @Override
@@ -598,15 +597,12 @@ public class InfoFragment extends Fragment implements TextToSpeech.OnInitListene
 
                     } catch (Exception ex) {
                         Log.d("Mediaplayer", "ex");
-
                     }
 
                 }
 
             });
         } else {
-            destFilename = context.getFilesDir().getPath() + "/repro.wav";
-
             tts.setOnUtteranceProgressListener(new UtteranceProgressListener() {
 
                 @Override
@@ -637,21 +633,6 @@ public class InfoFragment extends Fragment implements TextToSpeech.OnInitListene
                     }
                 }
             });
-        }
-
-        //Comprovo quins idiomes te el terminal
-        Locale loc[] = Locale.getAvailableLocales();
-        boolean choosen = false;
-        for (int i = 0; i < loc.length && !choosen; i++) {
-            //si algun es espanol
-            if (loc[i].toString().length() >= 3 && loc[i].toString().substring(0, 2).equals("es")) {
-                if (tts.isLanguageAvailable(loc[i]) != TextToSpeech.LANG_NOT_SUPPORTED) {
-                    //si el tts el suporta el trio
-                    tts.setLanguage(loc[i]);
-                    choosen = true;
-                    Log.d("TTS", "Language choosen:" + loc[i].toString());
-                }
-            }
         }
 
         Toast.makeText(context, R.string.toast_tts, Toast.LENGTH_LONG).show();
